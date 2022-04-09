@@ -1,0 +1,7 @@
+r16 = x-coordinate of dino center
+r17 = y-coordinate of dino bottom
+r18 = counts loop for jump
+r19 = holds dino total jump height
+r20 = button pressed status
+r21 = 1
+r22 = screen end status --> = 1 if ready for next frame

@@ -2,12 +2,12 @@
 module VGAController(     
 	input clk, 			// 100 MHz System Clock
 	input reset, 		// Reset Signal
-	input animate_button,
 	output hSync, 		// H Sync Signal
 	output vSync, 		// Veritcal Sync Signal
 	output[3:0] VGA_R,  // Red Signal Bits
 	output[3:0] VGA_G,  // Green Signal Bits
 	output[3:0] VGA_B,  // Blue Signal Bits
+	output screenEnd;
 	inout ps2_clk,
 	inout ps2_data);
 	
@@ -28,7 +28,7 @@ module VGAController(
 		VIDEO_WIDTH = 640,  // Standard VGA Width
 		VIDEO_HEIGHT = 480; // Standard VGA Height
 
-	wire active, screenEnd;
+	wire active;
 	wire [11:0] x;
 	wire [11:0] y;
 	
@@ -45,7 +45,7 @@ module VGAController(
 		.x(x), 				   // X Coordinate (from left) --> x coordinate of current pixel being drawn
 		.y(y)); 			   // Y Coordinate (from top)  --> y coordinate of current pixel being drawn   
 
-	//wire x_in_bounds, y_in_bounds;
+	wire x_in_bounds, y_in_bounds;
 	input x_center_square, y_bottom_square;
 	
 	wire [11:0] topB, bottB, leftB, rightB; 
