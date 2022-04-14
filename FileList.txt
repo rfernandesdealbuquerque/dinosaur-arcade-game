@@ -45,3 +45,7 @@ tristate_32.v
 tristate_5.v
 type_control.v
 writeback.v
+VGAController.v
+VGATimingGenerator.v
+square.v
+

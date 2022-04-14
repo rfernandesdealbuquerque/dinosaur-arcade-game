@@ -37,7 +37,7 @@ j not_ready_to_update_ascend
 
 
 blt $r19, $r18, 2 #29<r18 --> dino has reached max jump height, go to descend
-j ascend;
+j ascend
 j descend
 
 descend:

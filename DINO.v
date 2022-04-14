@@ -25,8 +25,8 @@ module DINO(input clk,
     wire screenEnd;
 
     wire [31:0] x_coor, y_coor, r20, r22;
-    assign r22[31:1] = 31'd0;
-    assign r22[0] = button_press;
+    assign r20[31:1] = 31'd0;
+    assign r20[0] = button_press;
 	assign r22[31:1] = 31'd0;
     assign r22[0] = screenEnd;
 
