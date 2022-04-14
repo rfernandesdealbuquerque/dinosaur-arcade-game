@@ -13,11 +13,11 @@ module VGAController(
 	
 	input [31:0] x_coor, 
 	input [31:0] y_coor,
-	input [31:0] loop_count,
-	input [31:0] jump_height,
-	input [31:0] button_press,
-	input [31:0] always_one,
-	input [31:0] screen_end // questionable ... should be output? 
+	// input [31:0] loop_count, 
+	// input [31:0] jump_height, 
+	// input [31:0] button_press,
+	// input [31:0] always_one,
+	// input [31:0] screen_end // questionable ... should be output? 
 	
 	);
 	
@@ -56,7 +56,9 @@ module VGAController(
 		.y(y)); 			   // Y Coordinate (from top)  --> y coordinate of current pixel being drawn   
 
 	wire x_in_bounds, y_in_bounds;
-	input x_center_square, y_bottom_square;
+	wire [11:0] x_center_square, y_bottom_square;
+	assign x_center_square = x_coor[11:0];
+	assign y_bottom_square = y_coor[11:0]; 
 	
 	wire [11:0] topB, bottB, leftB, rightB; 
 	assign topB = y_center_square - 60;
