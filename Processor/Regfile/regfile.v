@@ -2,7 +2,9 @@ module regfile (
 	clock,
 	ctrl_writeEnable, ctrl_reset, ctrl_writeReg,
 	ctrl_readRegA, ctrl_readRegB, data_writeReg,
-	data_readRegA, data_readRegB
+	data_readRegA, data_readRegB, 
+
+	r0, r16, r17, r18, r19, r20, r21, r22
 );
 
 	input clock, ctrl_writeEnable, ctrl_reset;
@@ -10,6 +12,8 @@ module regfile (
 	input [31:0] data_writeReg;
 
 	output [31:0] data_readRegA, data_readRegB;
+
+	output [31:0] r0, r16, r17, r18, r19, r20, r21, r22;
 
 	// add your code here
 
@@ -46,4 +50,15 @@ module regfile (
    	        register register_n(registers[k], data_writeReg, clock, one_hot_write[k], ctrl_reset);
         end
     endgenerate
+
+	// New Output
+	assign r0 = registers[0];
+	assign r16 = registers[16];
+	assign f17 = registers[17];
+	assign r18 = registers[18];
+	assign r19 = registers[19];
+	assign r20 = registers[20];
+	assign r21 = registers[21];
+	assign r22 = registers[22];
+
 endmodule

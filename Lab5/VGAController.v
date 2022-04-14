@@ -7,9 +7,19 @@ module VGAController(
 	output[3:0] VGA_R,  // Red Signal Bits
 	output[3:0] VGA_G,  // Green Signal Bits
 	output[3:0] VGA_B,  // Blue Signal Bits
-	output screenEnd;
+	output screenEnd,
 	inout ps2_clk,
-	inout ps2_data);
+	inout ps2_data, 
+	
+	input [31:0] x_coor, 
+	input [31:0] y_coor,
+	input [31:0] loop_count,
+	input [31:0] jump_height,
+	input [31:0] button_press,
+	input [31:0] always_one,
+	input [31:0] screen_end // questionable ... should be output? 
+	
+	);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "C:/Users/rodri/ECE350/Lab5/";
