@@ -13,11 +13,6 @@ module VGAController(
 	
 	input [31:0] x_coor, 
 	input [31:0] y_coor,
-	// input [31:0] loop_count, 
-	// input [31:0] jump_height, 
-	// input [31:0] button_press,
-	// input [31:0] always_one,
-	// input [31:0] screen_end // questionable ... should be output? 
 	
 	);
 	

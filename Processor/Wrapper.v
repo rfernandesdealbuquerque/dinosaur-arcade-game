@@ -26,11 +26,14 @@
 
 module Wrapper (
 	clock, reset,
-	r0, r16, r17, r18, r19, r20, r21, r22
+
+	r20, r22, 
+	r16, r17
 );
 	input clock, reset;
+	input [31:0] r20, r22;
 
-	output [31:0] r0, r16, r17, r18, r19, r20, r21, r22;
+	output [31:0] r16, r17;
 
 	wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
@@ -71,8 +74,8 @@ module Wrapper (
 		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2), 
 		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), 
 		
-		.r0(r0), .r16(r16), .r17(r17), .r18(r18), .r19(r19), .r20(r20), .r21(r21), .r22(r22)
-		
+		.r20(r20), .r22(r22),
+		.r16(r16), .r17(r17)
 	);
 						
 	// Processor Memory (RAM)

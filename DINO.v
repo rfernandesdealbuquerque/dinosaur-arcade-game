@@ -24,17 +24,21 @@ module DINO(input clk,
     // TODO: should we need clock converter? FPS, frame rate ... 
     wire screenEnd;
 
-    wire [31:0] x_coor, y_coor, r22;
+    wire [31:0] x_coor, y_coor, r20, r22;
     assign r22[31:1] = 31'd0;
+    assign r22[0] = button_press;
+	assign r22[31:1] = 31'd0;
     assign r22[0] = screenEnd;
+
 
     Wrapper CPU(
         // OG ports    
         .clock(clock), 
         .reset(reset), 
 
-        .r0(r0), .r16(x_coor), .r17(y_coor), .r18(loop_count), 
-        .r19(jump_height), .r20(button_press), .r21(always_one), .r22(r22)
+        .r20(r20), .r22(r22), 
+        .r16(x_coor), .r17(y_coor)
+        
     );
 
 // r16 = x-coordinate of dino center
@@ -63,12 +67,7 @@ module DINO(input clk,
         .ps2_data(ps2_data), 
 
         .x_coor(x_coor), 
-        .y_coor(y_coor),
-        // .loop_count(loop_count),
-        // .jump_height(jump_height),
-        // .button_press(button_press),
-        // .always_one(always_one),
-        // .screen_end(screen_end) // questionable ... should be output? 
+        .y_coor(y_coor) 
     );
 
 
