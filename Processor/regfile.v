@@ -3,18 +3,19 @@ module regfile (
 	ctrl_writeEnable, ctrl_reset, ctrl_writeReg,
 	ctrl_readRegA, ctrl_readRegB, data_writeReg,
 	data_readRegA, data_readRegB,
-
-    r16, r17, r20, r22
+	
+	r16, r17, r20, r22
 );
-
-    input [31:0] r20, r22;
-
+    input [31:0] r20, r22; 
 	input clock, ctrl_writeEnable, ctrl_reset;
 	input [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
 	input [31:0] data_writeReg;
-
-	output [31:0] data_readRegA, data_readRegB;
+    
     output [31:0] r16, r17;
+	output [31:0] data_readRegA, data_readRegB;
+
+    assign r16 = Q_reg16;
+    assign r17 = Q_reg17;
 
 	wire [31:0] Q_reg0, Q_reg1, Q_reg2, Q_reg3, Q_reg4, Q_reg5, Q_reg6, Q_reg7;
 	wire [31:0] Q_reg8, Q_reg9, Q_reg10, Q_reg11, Q_reg12, Q_reg13, Q_reg14, Q_reg15;
@@ -24,8 +25,6 @@ module regfile (
 	wire [31:0] out_decoder_RA;
 	wire [31:0] out_decoder_RB;
 	
-    assign r16 = Q_reg16;
-    assign r17 = Q_reg17;
 
 decoder_32 decoder_W(.out(out_decoder_W), .in(ctrl_writeReg), .enable(ctrl_writeEnable));
 decoder_32 decoder_RA(.out(out_decoder_RA), .in(ctrl_readRegA), .enable(1'b1));
@@ -53,9 +52,9 @@ register reg16(.Q(Q_reg16), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[16
 register reg17(.Q(Q_reg17), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[17]), .clear(ctrl_reset));
 register reg18(.Q(Q_reg18), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[18]), .clear(ctrl_reset));
 register reg19(.Q(Q_reg19), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[19]), .clear(ctrl_reset));
-register reg20(.Q(Q_reg20), .D(r20), .clk(clock), .WE(out_decoder_W[20]), .clear(ctrl_reset));
+register reg20(.Q(Q_reg20), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[20]), .clear(ctrl_reset));
 register reg21(.Q(Q_reg21), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[21]), .clear(ctrl_reset));
-register reg22(.Q(Q_reg22), .D(r22), .clk(clock), .WE(out_decoder_W[22]), .clear(ctrl_reset));
+register reg22(.Q(Q_reg22), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[22]), .clear(ctrl_reset));
 register reg23(.Q(Q_reg23), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[23]), .clear(ctrl_reset));
 
 register reg24(.Q(Q_reg24), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[24]), .clear(ctrl_reset));
