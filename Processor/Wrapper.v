@@ -43,7 +43,7 @@ module Wrapper (
 
 
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "./dino_assembly";
+	localparam INSTR_FILE = "dino_assembly";
 	
 	// Main Processing Unit
 	processor CPU(.clock(clock), .reset(reset), 
