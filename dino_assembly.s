@@ -7,9 +7,12 @@ add $r0, $r0, $r0
 addi $r16, $r0, 240 #dino x-coordinate (center) 
 addi $r17, $r0, 320 #dino y-coordinate (bottom)
 
+addi $r14, $r0, 550 #obstacle x-coordinate
+addi $r15, $r0, 320 #obstacle y-coordinate
+
 addi $r18, $r0, 0 #counter for jump loop
 addi $r19, $r0, -199 #dino jump height
-addi $r21, $r0, 1 #constant 1
+addi $r21, $r0, -10 #constant -10
 
 addi $r20, $r0, 0 #r20 sees if button is pressed - if pressed r20 != 0
 addi $r22, $r0, 0 #screedEnd status register
@@ -55,7 +58,7 @@ blt $r0, $r22, 1 #r22 > 0 --> ready for next iteration
 j not_ready_to_update_descend
 
 addi $r22, $r0, 0
-blt $r0, $r18, 1 #r18 = 0 --> dino has reached ground, clear button register and go back to game loop
+blt $r21, $r18, 1 #r18 = 0 --> dino has reached ground, clear button register and go back to game loop
 j descend
 
 addi $r20, $r0, 0 #clear button register

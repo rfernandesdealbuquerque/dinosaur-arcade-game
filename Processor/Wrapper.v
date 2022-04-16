@@ -29,6 +29,7 @@ module Wrapper (
 
 	r20, r22, 
 	r16, r17,
+	r14, r15,
 	button_signal,
 	screen_signal,
 	q_reg20,
@@ -40,6 +41,7 @@ module Wrapper (
 	input button_signal, screen_signal;
 
 	output [31:0] r16, r17;
+	output [31:0] r14, r15;
 	output [31:0] q_reg20, q_reg22;
 
 	wire rwe, mwe;
@@ -83,6 +85,7 @@ module Wrapper (
 		
 		.r20(r20), .r22(r22),
 		.r16(r16), .r17(r17),
+		.r14(r14), .r15(r15),
 		.button_signal_reg(button_signal),
 		.screen_signal_reg(screen_signal),
 		.q_reg20(q_reg20),

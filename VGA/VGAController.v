@@ -12,7 +12,10 @@ module VGAController(
 	inout ps2_data,
 	
 	input [31:0] x_coor, 
-	input [31:0] y_coor);
+	input [31:0] y_coor,
+	input [31:0] x_coor_obstacle,
+	input [31:0] y_coor_obstacle
+	);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "C:/Users/rodri/ECE350/final-project-team-18/VGA/";
@@ -49,6 +52,8 @@ module VGAController(
 		.x(x), 				   // X Coordinate (from left) --> x coordinate of current pixel being drawn
 		.y(y)); 			   // Y Coordinate (from top)  --> y coordinate of current pixel being drawn   
 
+
+//-------------SQUARE/DINO------------------------
 	wire x_in_bounds, y_in_bounds;
 	wire [11:0] x_center_square, y_bottom_square;
 	
@@ -58,15 +63,35 @@ module VGAController(
 	//assign x_center_square = 240;
 	//assign y_bottom_square = 320;
 	
-	
 	wire [11:0] topB, bottB, leftB, rightB; 
-	assign topB = y_bottom_square - 60;
+	assign topB = y_bottom_square - 60; //60 height
 	assign bottB = y_bottom_square;
-	assign leftB = x_center_square - 25;
-	assign rightB = x_center_square + 25;
+	assign leftB = x_center_square;
+	assign rightB = x_center_square + 50; //50 width
 
 	assign x_in_bounds = (x >= leftB) && (x <= rightB);
 	assign y_in_bounds = (y >= topB) && (y <= bottB);
+
+	//--------------OBSTACLE---------------------
+
+	wire x_in_bounds_obstacle, y_in_bounds_obstacle;
+	wire [11:0] x_center_obstacle, y_bottom_obstacle;
+
+	//assign x_center_obstacle = 550;
+	//assign y_bottom_obstacle = 320;
+
+
+	assign x_center_obstacle = x_coor_obstacle[11:0];
+	assign y_bottom_obstacle = y_coor_obstacle[11:0];
+
+	wire [11:0] topB_obstacle, bottB_obstacle, leftB_obstacle, rightB_obstacle;
+	assign topB_obstacle = y_bottom_obstacle - 120; //120 height
+	assign bottB_obstacle = y_bottom_obstacle;
+	assign leftB_obstacle = x_center_obstacle;
+	assign rightB_obstacle = x_center_obstacle + 50; //50 width
+
+	assign x_in_bounds_obstacle = (x >= leftB_obstacle) && (x <= rightB_obstacle);
+	assign y_in_bounds_obstacle = (y >= topB_obstacle) && (y <= bottB_obstacle);
 
 
 	// Image Data to Map Pixel Location to Color Address
@@ -108,12 +133,13 @@ module VGAController(
 	
 
 	// Assign to output color from register if active
-	wire[BITS_PER_COLOR-1:0] colorOut, squareOut; 			  // Output color 
+	wire[BITS_PER_COLOR-1:0] colorOut, squareOut, obstacleOut; 			  // Output color 
 	assign colorOut = active ? colorData : 12'd0; // When not active, output black
 	assign squareOut = (x_in_bounds & y_in_bounds) ? 12'hc10 : colorOut;
+	assign obstacleOut = (x_in_bounds_obstacle & y_in_bounds_obstacle) ? 12'hc13 : squareOut;
 
 	// Quickly assign the output colors to their channels using concatenation
-	assign {VGA_R, VGA_G, VGA_B} = squareOut;
+	assign {VGA_R, VGA_G, VGA_B} = obstacleOut;
     assign screen_ready = screenEnd;
     
 	//dffe_ref dffe_led(screen_ready, screenEnd, frame_rate_clk, 1'b1, 1'b0);

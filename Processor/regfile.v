@@ -4,7 +4,8 @@ module regfile (
 	ctrl_readRegA, ctrl_readRegB, data_writeReg,
 	data_readRegA, data_readRegB,
 	
-	r16, r17, r20, r22, button_signal_reg, screen_signal_reg, q_reg20, q_reg22
+	r16, r17, r20, r22, button_signal_reg, screen_signal_reg, q_reg20, q_reg22,
+	r14, r15
 );
     input [31:0] r20, r22; 
 	input clock, ctrl_writeEnable, ctrl_reset;
@@ -14,9 +15,13 @@ module regfile (
 	input button_signal_reg, screen_signal_reg;
 
     output [31:0] r16, r17;
+	output [31:0] r14, r15;
 	output [31:0] data_readRegA, data_readRegB;
 	output [31:0] q_reg20, q_reg22;
 
+
+	assign r14 = Q_reg14;
+	assign r15 = Q_reg15;
     assign r16 = Q_reg16;
     assign r17 = Q_reg17;
 
