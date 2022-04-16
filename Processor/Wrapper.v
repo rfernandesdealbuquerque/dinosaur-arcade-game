@@ -28,12 +28,19 @@ module Wrapper (
 	clock, reset,
 
 	r20, r22, 
-	r16, r17
+	r16, r17,
+	button_signal,
+	screen_signal,
+	q_reg20,
+	q_reg22
 );
+
 	input clock, reset;
 	input [31:0] r20, r22;
+	input button_signal, screen_signal;
 
 	output [31:0] r16, r17;
+	output [31:0] q_reg20, q_reg22;
 
 	wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
@@ -75,7 +82,11 @@ module Wrapper (
 		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), 
 		
 		.r20(r20), .r22(r22),
-		.r16(r16), .r17(r17)
+		.r16(r16), .r17(r17),
+		.button_signal_reg(button_signal),
+		.screen_signal_reg(screen_signal),
+		.q_reg20(q_reg20),
+		.q_reg22(q_reg22)
 	);
 						
 	// Processor Memory (RAM)

@@ -27,6 +27,8 @@ module regfile (
     assign r16 = Q_reg16;
     assign r17 = Q_reg17;
 
+//problem: can't alter D of r20 with assembly code? -check what is inside reg 20, reg22
+
 decoder_32 decoder_W(.out(out_decoder_W), .in(ctrl_writeReg), .enable(ctrl_writeEnable));
 decoder_32 decoder_RA(.out(out_decoder_RA), .in(ctrl_readRegA), .enable(1'b1));
 decoder_32 decoder_RB(.out(out_decoder_RB), .in(ctrl_readRegB), .enable(1'b1));

@@ -4,15 +4,18 @@ module regfile (
 	ctrl_readRegA, ctrl_readRegB, data_writeReg,
 	data_readRegA, data_readRegB,
 	
-	r16, r17, r20, r22
+	r16, r17, r20, r22, button_signal_reg, screen_signal_reg, q_reg20, q_reg22
 );
     input [31:0] r20, r22; 
 	input clock, ctrl_writeEnable, ctrl_reset;
 	input [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
 	input [31:0] data_writeReg;
     
+	input button_signal_reg, screen_signal_reg;
+
     output [31:0] r16, r17;
 	output [31:0] data_readRegA, data_readRegB;
+	output [31:0] q_reg20, q_reg22;
 
     assign r16 = Q_reg16;
     assign r17 = Q_reg17;
@@ -47,16 +50,16 @@ register reg12(.Q(Q_reg12), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[12
 register reg13(.Q(Q_reg13), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[13]), .clear(ctrl_reset));
 register reg14(.Q(Q_reg14), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[14]), .clear(ctrl_reset));
 register reg15(.Q(Q_reg15), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[15]), .clear(ctrl_reset));
-
 register reg16(.Q(Q_reg16), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[16]), .clear(ctrl_reset));
 register reg17(.Q(Q_reg17), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[17]), .clear(ctrl_reset));
 register reg18(.Q(Q_reg18), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[18]), .clear(ctrl_reset));
 register reg19(.Q(Q_reg19), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[19]), .clear(ctrl_reset));
-register reg20(.Q(Q_reg20), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[20]), .clear(ctrl_reset));
-register reg21(.Q(Q_reg21), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[21]), .clear(ctrl_reset));
-register reg22(.Q(Q_reg22), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[22]), .clear(ctrl_reset));
-register reg23(.Q(Q_reg23), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[23]), .clear(ctrl_reset));
 
+register reg20(.Q(Q_reg20), .D(r20), .clk(clock), .WE(button_signal_reg || out_decoder_W[20]), .clear(ctrl_reset)); 
+register reg22(.Q(Q_reg22), .D(r22), .clk(clock), .WE(screen_signal_reg || out_decoder_W[22]), .clear(ctrl_reset));
+
+register reg21(.Q(Q_reg21), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[21]), .clear(ctrl_reset));
+register reg23(.Q(Q_reg23), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[23]), .clear(ctrl_reset));
 register reg24(.Q(Q_reg24), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[24]), .clear(ctrl_reset));
 register reg25(.Q(Q_reg25), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[25]), .clear(ctrl_reset));
 register reg26(.Q(Q_reg26), .D(data_writeReg), .clk(clock), .WE(out_decoder_W[26]), .clear(ctrl_reset));
