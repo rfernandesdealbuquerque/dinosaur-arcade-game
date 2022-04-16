@@ -57,7 +57,7 @@ module AudioController(
     
     assign micClk = clk1MHz;
 
-	PWMDeserializer myDeserializer(.clk(clk), .reset(1'b0), .signal(micData), .duty_cycle(duty_cycle_mic));
+	//PWMDeserializer myDeserializer(.clk(clk), .reset(1'b0), .signal(micData), .duty_cycle(duty_cycle_mic));
 	PWMSerializer mySerializer(.clk(clk), .reset(1'b0), .duty_cycle(duty_cycle), .signal(audioOut));
 //	  input clk,              // System Clock
 //    input reset,            // Reset the counter

@@ -1,0 +1,243 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Fri Apr 15 17:24:47 2022
+# Process ID: 2852
+# Current directory: C:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1
+# Command line: vivado.exe -log DINO.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source DINO.tcl -notrace
+# Log file: C:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/DINO.vdi
+# Journal file: C:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source DINO.tcl -notrace
+Command: link_design -top DINO -part xc7a100tcsg324-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.srcs/sources_1/ip/ila_0/ila_0.dcp' for cell 'debugger'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.099 . Memory (MB): peak = 1035.441 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 562 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Chipscope 16-324] Core: debugger UUID: be58990e-d933-5a1b-be82-dcb6093f493e 
+Parsing XDC File [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'debugger/inst'
+Finished Parsing XDC File [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'debugger/inst'
+Parsing XDC File [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc] for cell 'debugger/inst'
+Finished Parsing XDC File [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc] for cell 'debugger/inst'
+Parsing XDC File [C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc]
+CRITICAL WARNING: [Designutils 20-1307] Command '//' is not supported in the xdc constraint file. [C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc:1]
+CRITICAL WARNING: [Designutils 20-1307] Command '//' is not supported in the xdc constraint file. [C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc:5]
+WARNING: [Vivado 12-584] No ports matched 'reset'. [C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc:6]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'reset'. [C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc:7]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc:7]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Designutils 20-1307] Command '//' is not supported in the xdc constraint file. [C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc:9]
+CRITICAL WARNING: [Designutils 20-1307] Command '//' is not supported in the xdc constraint file. [C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc:36]
+CRITICAL WARNING: [Designutils 20-1307] Command '//' is not supported in the xdc constraint file. [C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc:43]
+Finished Parsing XDC File [C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1035.441 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 248 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 216 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 32 instances
+
+9 Infos, 2 Warnings, 7 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1035.441 ; gain = 0.000
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port ps2_clk expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port ps2_data expects both input and output buffering but the buffers are incomplete.
+INFO: [Project 1-461] DRC finished with 0 Errors, 2 Warnings
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.904 . Memory (MB): peak = 1035.441 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1f7811be6
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1333.797 ; gain = 298.355
+
+Starting Logic Optimization Task
+
+Phase 1 Generate And Synthesize Debug Cores
+INFO: [Chipscope 16-329] Generating Script for core instance : dbg_hub 
+INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:xsdbm:3.0 for cell dbg_hub_CV.
+INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:xsdbm:3.0, cache-ID = c90534bd3dba2934.
+CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [filter [all_fanout -from [get_pins -filter REF_PIN_NAME=~wr_clk -of_objects [get_cells -hierarchical -filter {NAME =~ "*SUBCORE_FIFO.*rdfifo_inst"}]] -flat -endpoints_only] IS_LEAF]'. [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/.Xil/Vivado-2852-DESKTOP-1ABTAGV/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:7]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Common 17-55] 'get_property' expects at least one object. [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/.Xil/Vivado-2852-DESKTOP-1ABTAGV/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "wr_clk_period": no such variable
+ [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/.Xil/Vivado-2852-DESKTOP-1ABTAGV/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:12]
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "skew_value": no such variable
+ [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/.Xil/Vivado-2852-DESKTOP-1ABTAGV/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'get_property' expects at least one object. [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/.Xil/Vivado-2852-DESKTOP-1ABTAGV/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "skew_value": no such variable
+ [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/.Xil/Vivado-2852-DESKTOP-1ABTAGV/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:20]
+CRITICAL WARNING: [Common 17-55] 'get_property' expects at least one object. [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/.Xil/Vivado-2852-DESKTOP-1ABTAGV/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:24]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "rd_clk_period_2": no such variable
+ [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/.Xil/Vivado-2852-DESKTOP-1ABTAGV/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:25]
+CRITICAL WARNING: [Common 17-55] 'get_property' expects at least one object. [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/.Xil/Vivado-2852-DESKTOP-1ABTAGV/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:32]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "skew_value_2": no such variable
+ [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/.Xil/Vivado-2852-DESKTOP-1ABTAGV/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:33]
+CRITICAL WARNING: [Common 17-1548] Command failed: can't read "skew_value_2": no such variable
+ [c:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/.Xil/Vivado-2852-DESKTOP-1ABTAGV/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:36]
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 1575.855 ; gain = 0.000
+Phase 1 Generate And Synthesize Debug Cores | Checksum: 22990c344
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 1575.855 ; gain = 33.051
+
+Phase 2 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 2 Retarget | Checksum: 202303343
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 1575.855 ; gain = 33.051
+INFO: [Opt 31-389] Phase Retarget created 4 cells and removed 11 cells
+INFO: [Opt 31-1021] In phase Retarget, 65 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 3 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 3 Constant propagation | Checksum: 160958e29
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 1575.855 ; gain = 33.051
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 16 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 112 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 Sweep
+Phase 4 Sweep | Checksum: 18e20461e
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1575.855 ; gain = 33.051
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 48 cells
+INFO: [Opt 31-1021] In phase Sweep, 926 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 5 BUFG optimization
+Phase 5 BUFG optimization | Checksum: 18e20461e
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1575.855 ; gain = 33.051
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 6 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 6 Shift Register Optimization | Checksum: 18e20461e
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1575.855 ; gain = 33.051
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 7 Post Processing Netlist
+Phase 7 Post Processing Netlist | Checksum: 186831d0d
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1575.855 ; gain = 33.051
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 58 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               4  |              11  |                                             65  |
+|  Constant propagation         |               0  |              16  |                                            112  |
+|  Sweep                        |               0  |              48  |                                            926  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                             58  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1575.855 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 2315c8dc8
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1575.855 ; gain = 33.051
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 4 BRAM(s) out of a total of 85 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 44 newly gated: 0 Total Ports: 170
+Number of Flops added for Enable Generation: 5
+
+Ending PowerOpt Patch Enables Task | Checksum: 25d67fe04
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.274 . Memory (MB): peak = 1717.555 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 25d67fe04
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 1717.555 ; gain = 141.699
+
+Starting Final Cleanup Task
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Logic Optimization Task | Checksum: 164afd1ae
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.700 . Memory (MB): peak = 1717.555 ; gain = 0.000
+Ending Final Cleanup Task | Checksum: 164afd1ae
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1717.555 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1717.555 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 164afd1ae
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1717.555 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+44 Infos, 7 Warnings, 18 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1717.555 ; gain = 682.113
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1717.555 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/DINO_opt.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file DINO_drc_opted.rpt -pb DINO_drc_opted.pb -rpx DINO_drc_opted.rpx
+Command: report_drc -file DINO_drc_opted.rpt -pb DINO_drc_opted.pb -rpx DINO_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file C:/Users/rodri/ECE350/final-project-team-18/project_2/project_2.runs/impl_1/DINO_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Chipscope 16-240] Debug cores have already been implemented
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [DRC 23-27] Running DRC with 2 threads
+ERROR: [DRC NDRV-1] Driverless Nets: Undriven nets found. Running opt_design will clean up the undriven nets from your design. Please ensure that opt_design has been run on your design and check the remaining
+nets for DONT_TOUCH properties. The undriven nets in your design are: Net sl_iport0[1] is undriven.
+INFO: [Vivado_Tcl 4-198] DRC finished with 1 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+ERROR: [Vivado_Tcl 4-384] DRC checks failed. Netlist or placement errors exist in this design. Please correct these errors before proceeding.
+INFO: [Common 17-83] Releasing license: Implementation
+57 Infos, 7 Warnings, 18 Critical Warnings and 2 Errors encountered.
+place_design failed
+ERROR: [Common 17-39] 'place_design' failed due to earlier errors.
+
+INFO: [Common 17-206] Exiting Vivado at Fri Apr 15 17:25:33 2022...

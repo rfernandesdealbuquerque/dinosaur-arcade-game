@@ -31,11 +31,11 @@ set_property IOSTANDARD LVCMOS33 [get_ports {VGA_R[3]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {VGA_R[2]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {VGA_R[1]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {VGA_R[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports animate_button]
+set_property IOSTANDARD LVCMOS33 [get_ports {button_press}]
 
 // Sync Ports
+set_property PACKAGE_PIN M18 [get_ports button_press]
 set_property PACKAGE_PIN B11 [get_ports hSync]
-set_property PACKAGE_PIN M18 [get_ports animate_button]
 set_property PACKAGE_PIN B12 [get_ports vSync]
 set_property IOSTANDARD LVCMOS33 [get_ports hSync]
 set_property IOSTANDARD LVCMOS33 [get_ports vSync]
@@ -45,3 +45,4 @@ set_property PACKAGE_PIN F4 [get_ports ps2_clk]
 set_property PACKAGE_PIN B2 [get_ports ps2_data]
 set_property IOSTANDARD LVCMOS33 [get_ports ps2_clk]
 set_property IOSTANDARD LVCMOS33 [get_ports ps2_data]
+

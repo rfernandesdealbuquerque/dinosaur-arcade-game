@@ -7,17 +7,15 @@ module VGAController(
 	output[3:0] VGA_R,  // Red Signal Bits
 	output[3:0] VGA_G,  // Green Signal Bits
 	output[3:0] VGA_B,  // Blue Signal Bits
-	output screenEnd,
+	output screen_ready,
 	inout ps2_clk,
-	inout ps2_data, 
+	inout ps2_data,
 	
 	input [31:0] x_coor, 
-	input [31:0] y_coor,
-	
-	);
+	input [31:0] y_coor);
 	
 	// Lab Memory Files Location
-	localparam FILES_PATH = "C:/Users/rodri/ECE350/Lab5/";
+	localparam FILES_PATH = "C:/Users/rodri/ECE350/final-project-team-18/VGA/";
 
 	// Clock divider 100 MHz -> 25 MHz
 	wire clk25; // 25MHz clock
@@ -36,6 +34,7 @@ module VGAController(
 	wire active;
 	wire [11:0] x;
 	wire [11:0] y;
+	wire screenEnd;
 	
 	VGATimingGenerator #(
 		.HEIGHT(VIDEO_HEIGHT), // Use the standard VGA Values
@@ -52,12 +51,17 @@ module VGAController(
 
 	wire x_in_bounds, y_in_bounds;
 	wire [11:0] x_center_square, y_bottom_square;
+	
 	assign x_center_square = x_coor[11:0];
 	assign y_bottom_square = y_coor[11:0]; 
 	
+	//assign x_center_square = 240;
+	//assign y_bottom_square = 320;
+	
+	
 	wire [11:0] topB, bottB, leftB, rightB; 
-	assign topB = y_center_square - 60;
-	assign bottB = y_center_square;
+	assign topB = y_bottom_square - 60;
+	assign bottB = y_bottom_square;
 	assign leftB = x_center_square - 25;
 	assign rightB = x_center_square + 25;
 
@@ -77,7 +81,7 @@ module VGAController(
 	wire[PALETTE_ADDRESS_WIDTH-1:0] colorAddr; 	 // Color address for the color palette
 	assign imgAddress = x + 640*y;				 // Address calculated coordinate
 
-	RAM #(		
+	RAM_VGA #(		
 		.DEPTH(PIXEL_COUNT), 				     // Set RAM depth to contain every pixel
 		.DATA_WIDTH(PALETTE_ADDRESS_WIDTH),      // Set data width according to the color palette
 		.ADDRESS_WIDTH(PIXEL_ADDRESS_WIDTH),     // Set address with according to the pixel count
@@ -91,7 +95,7 @@ module VGAController(
 	// Color Palette to Map Color Address to 12-Bit Color
 	wire[BITS_PER_COLOR-1:0] colorData; // 12-bit color data at current pixel
 
-	RAM #(
+	RAM_VGA #(
 		.DEPTH(PALETTE_COLOR_COUNT), 		       // Set depth to contain every color		
 		.DATA_WIDTH(BITS_PER_COLOR), 		       // Set data width according to the bits per color
 		.ADDRESS_WIDTH(PALETTE_ADDRESS_WIDTH),     // Set address width according to the color count
@@ -110,6 +114,8 @@ module VGAController(
 
 	// Quickly assign the output colors to their channels using concatenation
 	assign {VGA_R, VGA_G, VGA_B} = squareOut;
-
+    assign screen_ready = screenEnd;
+    
+	//dffe_ref dffe_led(screen_ready, screenEnd, frame_rate_clk, 1'b1, 1'b0);
 	//square square(.clk(clk), .ani_clk(clk25), .animate(animate_button), .reset(reset), .butts(4'b0101), .topB(topB), .bottB(bottB), .leftB(leftB), .rightB(rightB));
 endmodule
