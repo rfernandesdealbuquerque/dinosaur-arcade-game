@@ -77,7 +77,7 @@ module VGAController(
 	wire x_in_bounds_obstacle, y_in_bounds_obstacle;
 	wire [11:0] x_center_obstacle, y_bottom_obstacle;
 
-	//assign x_center_obstacle = 550;
+	//assign x_center_obstacle = 680;
 	//assign y_bottom_obstacle = 320;
 
 

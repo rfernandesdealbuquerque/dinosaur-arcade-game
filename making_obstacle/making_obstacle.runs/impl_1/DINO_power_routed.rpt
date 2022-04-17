@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date             : Sat Apr 16 18:11:16 2022
+| Date             : Sat Apr 16 20:54:12 2022
 | Host             : DESKTOP-1ABTAGV running 64-bit major release  (build 9200)
 | Command          : report_power -file DINO_power_routed.rpt -pb DINO_power_summary_routed.pb -rpx DINO_power_routed.rpx
 | Design           : DINO
@@ -33,7 +33,7 @@ Table of Contents
 | Total On-Chip Power (W)  | 0.109        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.007        |
+| Dynamic (W)              | 0.008        |
 | Device Static (W)        | 0.101        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.5         |
@@ -53,16 +53,16 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |     0.001 |    16377 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     5615 |     63400 |            8.86 |
+| Slice Logic              |     0.001 |    16371 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |     5598 |     63400 |            8.83 |
 |   CARRY4                 |    <0.001 |      254 |     15850 |            1.60 |
-|   Register               |    <0.001 |     6493 |    126800 |            5.12 |
+|   Register               |    <0.001 |     6495 |    126800 |            5.12 |
 |   LUT as Distributed RAM |    <0.001 |      152 |     19000 |            0.80 |
 |   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
 |   LUT as Shift Register  |    <0.001 |      408 |     19000 |            2.15 |
 |   F7/F8 Muxes            |    <0.001 |       95 |     63400 |            0.15 |
-|   Others                 |     0.000 |     2163 |       --- |             --- |
-| Signals                  |     0.002 |    11860 |       --- |             --- |
+|   Others                 |     0.000 |     2166 |       --- |             --- |
+| Signals                  |     0.002 |    11854 |       --- |             --- |
 | Block RAM                |    <0.001 |       89 |       135 |           65.93 |
 | DSPs                     |    <0.001 |        5 |       240 |            2.08 |
 | I/O                      |     0.003 |       16 |       210 |            7.62 |
@@ -146,7 +146,9 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| DINO                     |     0.007 |
+| DINO                     |     0.008 |
+|   CPU                    |     0.001 |
+|     CPU                  |     0.001 |
 |   dbg_hub                |     0.001 |
 |     inst                 |     0.001 |
 |       BSCANID.u_xsdbm_id |     0.001 |

@@ -91,65 +91,65 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_mem {
-  C:/Users/rodri/ECE350/final-project-team-18/VGA/sprites.mem
-  C:/Users/rodri/ECE350/final-project-team-18/VGA/image.mem
-  C:/Users/rodri/ECE350/final-project-team-18/VGA/ascii.mem
-  C:/Users/rodri/ECE350/final-project-team-18/VGA/colors.mem
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/VGA/sprites.mem
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/VGA/image.mem
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/VGA/ascii.mem
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/VGA/colors.mem
   C:/Users/rodri/ECE350/final-project-team-18/Processor/dino_assembly.mem
 }
 read_verilog -library xil_defaultlib {
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/ADD.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/BIT_AND.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/BIT_OR.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/CLA_1.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/CLA_32.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/CLA_8.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/NOT_EQUAL.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/RAM.v
-  C:/Users/rodri/ECE350/final-project-team-18/VGA/RAM_VGA.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/ROM.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/SLL.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/SRA.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/SUBTRACT.v
-  C:/Users/rodri/ECE350/final-project-team-18/VGA/VGAController.v
-  C:/Users/rodri/ECE350/final-project-team-18/VGA/VGATimingGenerator.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/Wrapper.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/alu.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/bypass_struct.v
-  C:/Users/rodri/ECE350/final-project-team-18/clock_divider.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/decode.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/decoder_32.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/dffe_neg.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/dffe_ref.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/divider.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/dx.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/execute.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/fd.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/fetch.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/memory.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/multdiv.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/multiplier.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/mux_2.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/mux_2_one_bit.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/mux_4.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/mux_4_one_bit.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/mux_8.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/mux_8_one_bit.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/mw.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/overflow_struct.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/pc.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/pc_control.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/processor.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/pw.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/regfile.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/register.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/tri_32.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/tristate_32.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/tristate_5.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/type_control.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/writeback.v
-  C:/Users/rodri/ECE350/final-project-team-18/Processor/xm.v
-  C:/Users/rodri/ECE350/final-project-team-18/DINO.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/ADD.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/BIT_AND.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/BIT_OR.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/CLA_1.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/CLA_32.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/CLA_8.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/NOT_EQUAL.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/RAM.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/VGA/RAM_VGA.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/ROM.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/SLL.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/SRA.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/SUBTRACT.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/VGA/VGAController.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/VGA/VGATimingGenerator.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/Wrapper.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/alu.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/bypass_struct.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/clock_divider.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/decode.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/decoder_32.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/dffe_neg.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/dffe_ref.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/divider.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/dx.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/execute.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/fd.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/fetch.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/memory.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/multdiv.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/multiplier.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/mux_2.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/mux_2_one_bit.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/mux_4.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/mux_4_one_bit.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/mux_8.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/mux_8_one_bit.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/mw.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/overflow_struct.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/pc.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/pc_control.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/processor.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/pw.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/regfile.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/register.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/tri_32.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/tristate_32.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/tristate_5.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/type_control.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/writeback.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/Processor/xm.v
+  C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/imports/final-project-team-18/DINO.v
 }
 read_ip -quiet c:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/ip/ila_0/ila_0.xci
 set_property used_in_synthesis false [get_files -all c:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
@@ -166,8 +166,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc
-set_property used_in_implementation false [get_files C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc]
+read_xdc C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/constrs_1/imports/VGA/constraints.xdc
+set_property used_in_implementation false [get_files C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/constrs_1/imports/VGA/constraints.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

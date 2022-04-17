@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/rodri/ECE350/final-project-team-18/VGA/constraints.xdc rfile:../../../../VGA/constraints.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/rodri/ECE350/final-project-team-18/making_obstacle/making_obstacle.srcs/constrs_1/imports/VGA/constraints.xdc rfile:../../../making_obstacle.srcs/constrs_1/imports/VGA/constraints.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 // Clock on E3
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
