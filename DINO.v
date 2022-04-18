@@ -31,7 +31,8 @@ module DINO(input clk,
 
     wire screen_ready;
 
-    wire [31:0] x_coor, y_coor, r20, r22;
+    wire [31:0] x_coor, y_coor, x_coor_obstacle, y_coor_obstacle; 
+    wire [31:0] r20, r22;
     assign r20[31:3] = 28'd0;
     assign r20[2] = button_press;
     assign r20[1] = button_press;
@@ -43,7 +44,7 @@ module DINO(input clk,
 
     wire [31:0] q_reg20, q_reg22;
 
-    ila_0 debugger(.clk(clk), .probe0(x_coor), .probe1(y_coor), .probe2(r20), .probe3(r22), .probe4(q_reg20), .probe5(q_reg22));
+    //ila_0 debugger(.clk(clk), .probe0(x_coor), .probe1(y_coor), .probe2(r20), .probe3(r22), .probe4(q_reg20), .probe5(q_reg22));
 
     Wrapper CPU(
         // OG ports    
@@ -52,12 +53,15 @@ module DINO(input clk,
 
         .r20(r20), .r22(r22), 
         .r16(x_coor), .r17(y_coor),
+        .r14(x_coor_obstacle), .r15(y_coor_obstacle),
         .button_signal(button_press),
         .screen_signal(screen_ready),
         .q_reg20(q_reg20),
         .q_reg22(q_reg22)
     );
 
+//r14 = x-coordinate of obstacle center
+//r15 = y-coordinate of obstacle bottom
 // r16 = x-coordinate of dino center
 // r17 = y-coordinate of dino bottom
 // r18 = counts loop for jump
@@ -82,7 +86,9 @@ module DINO(input clk,
         .ps2_data(ps2_data), 
 
         .x_coor(x_coor), 
-        .y_coor(y_coor) 
+        .y_coor(y_coor),
+        .x_coor_obstacle(x_coor_obstacle),
+        .y_coor_obstacle(y_coor_obstacle) 
     );
 
 endmodule
