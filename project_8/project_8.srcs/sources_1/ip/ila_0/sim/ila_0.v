@@ -66,7 +66,7 @@ input [31 : 0] probe1;
 input [31 : 0] probe2;
 input [31 : 0] probe3;
 input [31 : 0] probe4;
-input [31 : 0] probe5;
+input [11 : 0] probe5;
 
 
 endmodule

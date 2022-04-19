@@ -32,9 +32,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports {VGA_R[2]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {VGA_R[1]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {VGA_R[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {button_press}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pause_switch}]
 
 //7-segment Display
-set_property IOSTANDARD LVCMOS33 [get_ports {test}]
 set_property IOSTANDARD LVCMOS33 [get_ports {A_0}]
 set_property IOSTANDARD LVCMOS33 [get_ports {B_0}]
 set_property IOSTANDARD LVCMOS33 [get_ports {C_0}]
@@ -44,8 +44,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports {F_0}]
 set_property IOSTANDARD LVCMOS33 [get_ports {G_0}]
 set_property IOSTANDARD LVCMOS33 [get_ports {anode_0}]
 
-set_property PACKAGE_PIN T10 [get_ports {test}]
-set_property PACKAGE_PIN K15 [get_ports {A_0}]
+set_property PACKAGE_PIN T10 [get_ports {A_0}]
 set_property PACKAGE_PIN R10 [get_ports {B_0}]
 set_property PACKAGE_PIN K16 [get_ports {C_0}]
 set_property PACKAGE_PIN K13 [get_ports {D_0}]
@@ -55,6 +54,7 @@ set_property PACKAGE_PIN L18 [get_ports {G_0}]
 set_property PACKAGE_PIN J17 [get_ports {anode_0}]
 
 // Sync Ports
+set_property PACKAGE_PIN J15 [get_ports pause_switch]
 set_property PACKAGE_PIN M18 [get_ports button_press]
 set_property PACKAGE_PIN B11 [get_ports hSync]
 set_property PACKAGE_PIN B12 [get_ports vSync]

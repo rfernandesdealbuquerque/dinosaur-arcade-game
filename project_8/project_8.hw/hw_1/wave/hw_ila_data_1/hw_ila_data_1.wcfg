@@ -15,7 +15,7 @@
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="661"></NameColumnWidth>
-      <ValueColumnWidth column_width="309"></ValueColumnWidth>
+      <ValueColumnWidth column_width="299"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="6" />
    <wave_markers>
@@ -52,18 +52,18 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="r25" type="array">
+   <wvobject fp_name="obstacle_height" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">r25[31:0]</obj_property>
-      <obj_property name="ObjectShortName">r25[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="ElementShortName">obstacle_height[11:0]</obj_property>
+      <obj_property name="ObjectShortName">obstacle_height[11:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="q_reg22" type="array">
+   <wvobject fp_name="r26" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">q_reg22[31:0]</obj_property>
-      <obj_property name="ObjectShortName">q_reg22[31:0]</obj_property>
+      <obj_property name="ElementShortName">r26[31:0]</obj_property>
+      <obj_property name="ObjectShortName">r26[31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>

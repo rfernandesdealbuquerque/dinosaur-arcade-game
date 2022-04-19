@@ -1,6 +1,7 @@
 module DINO(input clk,
             input button_press,
             input reset,
+            input pause_switch,
 
             // VGA input
             output hSync, 		// H Sync Signal
@@ -12,7 +13,6 @@ module DINO(input clk,
 
             output A_0, B_0, C_0, D_0, E_0, F_0, G_0,
             output anode_0,
-            output test,
 
             inout ps2_clk,
             inout ps2_data);
@@ -35,7 +35,7 @@ module DINO(input clk,
     wire screen_ready, collision_detected;
 
     wire [31:0] x_coor, y_coor, x_coor_obstacle, y_coor_obstacle; 
-    wire [31:0] r20, r22, r24, r25;
+    wire [31:0] r20, r22, r24, r25, r26;
     assign r20[31:3] = 28'd0;
     assign r20[2] = button_press;
     assign r20[1] = button_press;
@@ -48,23 +48,28 @@ module DINO(input clk,
     assign r24[2] = collision_detected;
     assign r24[1] = collision_detected;
     assign r24[0] = collision_detected;
-
-
+    assign r26[31:3] = 28'd0;
+    assign r26[2] = pause_switch;
+    assign r26[1] = pause_switch;
+    assign r26[0] = pause_switch;
+  
     wire [31:0] q_reg20, q_reg22;
+    wire [11:0] obstacle_height;
 
-    ila_0 debugger(.clk(clk), .probe0(x_coor), .probe1(y_coor), .probe2(r20), .probe3(r22), .probe4(r25), .probe5(q_reg22));
+    ila_0 debugger(.clk(clk), .probe0(x_coor), .probe1(y_coor), .probe2(r20), .probe3(r22), .probe4(r25), .probe5(obstacle_height));
 
     Wrapper CPU(
         // OG ports    
         .clock(processor_clk), 
         .reset(reset), 
 
-        .r20(r20), .r22(r22), .r24(r24),
+        .r20(r20), .r22(r22), .r24(r24), .r26(r26),
         .r16(x_coor), .r17(y_coor),
         .r14(x_coor_obstacle), .r15(y_coor_obstacle), .r25(r25),
         .button_signal(button_press),
         .screen_signal(screen_ready),
         .collision_signal(collision_detected),
+        .pause_signal(pause_switch),
         .q_reg20(q_reg20),
         .q_reg22(q_reg22)
     );
@@ -93,6 +98,7 @@ module DINO(input clk,
         .screen_ready(screen_ready),
         .collision_detected(collision_detected),
         .random_generator_clk(r25[1:0]),
+        .obstacle_height(obstacle_height),
         .ps2_clk(ps2_clk),
         .ps2_data(ps2_data), 
 
@@ -114,14 +120,14 @@ module DINO(input clk,
     assign F_0 = ~segment_0[1];
     assign G_0 = ~segment_0[0];
 
-    assign anode_0 = 1'b1;
-    assign test = button_press;
+    assign anode_0 = 1'b0;
+    //assign test = button_press;
     
     BCD Game_Score(.q(binary_counter), 
                    .lcd_4(segment_4), .lcd_3(segment_3), 
                    .lcd_2(segment_2), .lcd_1(segment_1), 
                    .lcd_0(segment_0),
-                   .clk(frame_rate_clk),
+                   .clk(r25[0]),
                    .en(1'b1),
                    .clr(reset)
                    );

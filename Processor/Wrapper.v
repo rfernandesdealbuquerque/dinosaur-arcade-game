@@ -27,19 +27,20 @@
 module Wrapper (
 	clock, reset,
 
-	r20, r22, r24, 
+	r20, r22, r24, r26, 
 	r16, r17,
 	r14, r15, r25,
 	button_signal,
 	screen_signal,
 	collision_signal,
+	pause_signal,
 	q_reg20,
 	q_reg22
 );
 
 	input clock, reset;
-	input [31:0] r20, r22, r24;
-	input button_signal, screen_signal, collision_signal;
+	input [31:0] r20, r22, r24, r26;
+	input button_signal, screen_signal, collision_signal, pause_signal;
 
 	output [31:0] r16, r17;
 	output [31:0] r14, r15;
@@ -85,12 +86,13 @@ module Wrapper (
 		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2), 
 		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), 
 		
-		.r20(r20), .r22(r22), .r24(r24),
+		.r20(r20), .r22(r22), .r24(r24), .r26(r26),
 		.r16(r16), .r17(r17),
 		.r14(r14), .r15(r15), .r25(r25),
 		.button_signal_reg(button_signal),
 		.screen_signal_reg(screen_signal),
 		.collision_signal_reg(collision_signal),
+		.pause_signal_reg(pause_signal),
 		.q_reg20(q_reg20),
 		.q_reg22(q_reg22)
 	);

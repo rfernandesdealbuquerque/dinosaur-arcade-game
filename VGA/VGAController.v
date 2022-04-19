@@ -10,6 +10,7 @@ module VGAController(
 	output[3:0] VGA_B,  // Blue Signal Bits
 	output screen_ready,
 	output collision_detected,
+	output [11:0] obstacle_height,
 	inout ps2_clk,
 	inout ps2_data,
 	
@@ -85,14 +86,33 @@ module VGAController(
 	assign obstacle_height[10] = 1'b0;
 	assign obstacle_height[9] = 1'b0;
 	assign obstacle_height[8] = 1'b0;
+	assign obstacle_height[7] = 1'b0;
+	assign obstacle_height[6] = 1'b0;
 	assign obstacle_height[3] = 1'b1;
 	assign obstacle_height[2] = 1'b1;
 	assign obstacle_height[1] = 1'b1;
 	assign obstacle_height[0] = 1'b1;
+	
+	assign obstacle_width[11] = 1'b0;
+	assign obstacle_width[10] = 1'b0;
+	assign obstacle_width[9] = 1'b0;
+	assign obstacle_width[8] = 1'b0;
+	assign obstacle_width[7] = 1'b0;
+	assign obstacle_width[6] = 1'b0;
+	assign obstacle_width[3] = 1'b1;
+	assign obstacle_width[2] = 1'b1;
+	assign obstacle_width[1] = 1'b1;
+	assign obstacle_width[0] = 1'b1;
+	wire q7_h, q7_w, q6_h, q6_w, q5_h, q5_w;
 
+	LFSR_4bit height_generator(.q7(q7_h), .q6(q6_h), .q5(obstacle_height[5]), 
+							   .q4(obstacle_height[4]), .clk(random_generator_clk[0]), .en(1'b1), .reset(reset));
 
-	LFSR_4bit height_generator(.q7(obstacle_height[7]), .q6(obstacle_height[6]), .q5(obstacle_height[5]), 
-									  .q4(obstacle_height[4]), .clk(random_generator_clk[0]), .en(1'b1), .reset(reset));
+	LFSR_4bit width_generator(.q7(q7_w), .q6(q6_w), .q5(obstacle_width[5]), 
+							  .q4(obstacle_width[4]), .clk(random_generator_clk[0] || random_generator_clk[1]), 
+							  .en(1'b1), .reset(reset));
+
+	
 
 	//assign x_center_obstacle = 680;
 	//assign y_bottom_obstacle = 320;
@@ -102,10 +122,11 @@ module VGAController(
 	assign y_bottom_obstacle = y_coor_obstacle[11:0];
 
 	wire [11:0] topB_obstacle, bottB_obstacle, leftB_obstacle, rightB_obstacle;
-	assign topB_obstacle = y_bottom_obstacle - 100; //120 height
+	assign topB_obstacle = y_bottom_obstacle - obstacle_height; //120 height
 	assign bottB_obstacle = y_bottom_obstacle;
 	assign leftB_obstacle = x_center_obstacle;
-	assign rightB_obstacle = x_center_obstacle + 50; //50 width
+	assign rightB_obstacle = x_center_obstacle + obstacle_width; //50 width
+
 
 	assign x_in_bounds_obstacle = (x >= leftB_obstacle) && (x <= rightB_obstacle);
 	assign y_in_bounds_obstacle = (y >= topB_obstacle) && (y <= bottB_obstacle);

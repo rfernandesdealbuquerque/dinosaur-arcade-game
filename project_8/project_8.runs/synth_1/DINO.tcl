@@ -154,7 +154,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/rodri/ECE350/final-project-team-18/Processor/xm.v
   C:/Users/rodri/ECE350/final-project-team-18/DINO.v
 }
-read_ip -quiet c:/Users/rodri/ECE350/final-project-team-18/project_8/project_8.srcs/sources_1/ip/ila_0/ila_0.xci
+read_ip -quiet C:/Users/rodri/ECE350/final-project-team-18/project_8/project_8.srcs/sources_1/ip/ila_0/ila_0.xci
 set_property used_in_synthesis false [get_files -all c:/Users/rodri/ECE350/final-project-team-18/project_8/project_8.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/rodri/ECE350/final-project-team-18/project_8/project_8.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/rodri/ECE350/final-project-team-18/project_8/project_8.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc]

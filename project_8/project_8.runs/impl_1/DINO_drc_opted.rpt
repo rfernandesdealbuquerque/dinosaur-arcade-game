@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Tue Apr 19 03:22:43 2022
+| Date         : Tue Apr 19 15:48:50 2022
 | Host         : DESKTOP-1ABTAGV running 64-bit major release  (build 9200)
 | Command      : report_drc -file DINO_drc_opted.rpt -pb DINO_drc_opted.pb -rpx DINO_drc_opted.rpx
 | Design       : DINO
@@ -24,18 +24,19 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 41
-+-----------+----------+-----------------------------------------------------+------------+
-| Rule      | Severity | Description                                         | Violations |
-+-----------+----------+-----------------------------------------------------+------------+
-| CFGBVS-1  | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
-| CHECK-3   | Warning  | Report rule limit reached                           | 1          |
-| DPIP-1    | Warning  | Input pipelining                                    | 10         |
-| DPOP-1    | Warning  | PREG Output pipelining                              | 3          |
-| DPOP-2    | Warning  | MREG Output pipelining                              | 5          |
-| IOSR-1    | Warning  | IOB set reset sharing                               | 1          |
-| REQP-1839 | Warning  | RAMB36 async control check                          | 20         |
-+-----------+----------+-----------------------------------------------------+------------+
+             Violations found: 42
++-------------+----------+-------------------------------------------------------------+------------+
+| Rule        | Severity | Description                                                 | Violations |
++-------------+----------+-------------------------------------------------------------+------------+
+| CFGBVS-1    | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties         | 1          |
+| CHECK-3     | Warning  | Report rule limit reached                                   | 1          |
+| DPIP-1      | Warning  | Input pipelining                                            | 10         |
+| DPOP-1      | Warning  | PREG Output pipelining                                      | 3          |
+| DPOP-2      | Warning  | MREG Output pipelining                                      | 5          |
+| IOSR-1      | Warning  | IOB set reset sharing                                       | 1          |
+| PLHOLDVIO-2 | Warning  | Non-Optimal connections which could lead to hold violations | 1          |
+| REQP-1839   | Warning  | RAMB36 async control check                                  | 20         |
++-------------+----------+-------------------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -150,6 +151,15 @@ Related violations: <none>
 IOSR-1#1 Warning
 IOB set reset sharing  
 IO button_press connects to flops which have these reset_IBUF, debugger/inst/ila_core_inst/use_probe_debug_circuit set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+Related violations: <none>
+
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT display_control/width_generator/dff_4/q_i_2 is driving clock pin of 4 cells. This could lead to large hold time violations. Involved cells are:
+display_control/width_generator/dff_4/q_reg,
+display_control/width_generator/dff_5/q_reg,
+display_control/width_generator/dff_6/q_reg,
+display_control/width_generator/dff_7/q_reg
 Related violations: <none>
 
 REQP-1839#1 Warning
