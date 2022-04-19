@@ -8,6 +8,7 @@ module VGAController(
 	output[3:0] VGA_G,  // Green Signal Bits
 	output[3:0] VGA_B,  // Blue Signal Bits
 	output screen_ready,
+	output collision_detected,
 	inout ps2_clk,
 	inout ps2_data,
 	
@@ -94,6 +95,14 @@ module VGAController(
 	assign y_in_bounds_obstacle = (y >= topB_obstacle) && (y <= bottB_obstacle);
 
 
+	wire collision_detected_y, collision_detected_x;
+
+	assign collision_detected_x = (rightB >= leftB_obstacle && leftB <= rightB_obstacle);
+	assign collision_detected_y = (bottB >= topB_obstacle);
+
+	assign collision_detected = (collision_detected_x && collision_detected_y);
+	
+
 	// Image Data to Map Pixel Location to Color Address
 	localparam 
 		PIXEL_COUNT = VIDEO_WIDTH*VIDEO_HEIGHT, 	             // Number of pixels on the screen
@@ -133,10 +142,11 @@ module VGAController(
 	
 
 	// Assign to output color from register if active
-	wire[BITS_PER_COLOR-1:0] colorOut, squareOut, obstacleOut; 			  // Output color 
+	wire[BITS_PER_COLOR-1:0] colorOut, squareOut, obstacleOut, screenOut; 			  // Output color 
 	assign colorOut = active ? colorData : 12'd0; // When not active, output black
 	assign squareOut = (x_in_bounds & y_in_bounds) ? 12'hc10 : colorOut;
 	assign obstacleOut = (x_in_bounds_obstacle & y_in_bounds_obstacle) ? 12'hc13 : squareOut;
+	//assign screenOut = collision_detected ? colorOut : obstacleOut;
 
 	// Quickly assign the output colors to their channels using concatenation
 	assign {VGA_R, VGA_G, VGA_B} = obstacleOut;

@@ -7,23 +7,25 @@ add $r0, $r0, $r0
 addi $r16, $r0, 240 #dino x-coordinate (center) 
 addi $r17, $r0, 320 #dino y-coordinate (bottom)
 
-addi $r14, $r0, 680 #obstacle x-coordinate
+addi $r14, $r0, 1800 #obstacle x-coordinate
 addi $r15, $r0, 320 #obstacle y-coordinate
 
 addi $r18, $r0, 0 #counter for jump loop
-addi $r19, $r0, -199 #dino jump height
+addi $r19, $r0, -229 #dino jump height
 addi $r21, $r0, -5 #constant -10
-addi $r23, $r0, -300 #constant -300
+addi $r23, $r0, -500 #constant -10000
 
-addi $r20, $r0, 0 #r20 sees if button is pressed - if pressed r20 != 0
+addi $r20, $r0, 0 #button_pressed status register
 addi $r22, $r0, 0 #screedEnd status register
+addi $r24, $r0, 0 #collision status register
 
 #2nd step: make dinosaur jump still
 
 game_loop: 
 
-bne $r0, $r20, 2 #r20 != 0 --> button is pressed! go to jump loop
+bne $r0, $r20, 3 #r20 != 0 --> button is pressed! go to jump loop
 
+jal check_collision
 jal move_obstacle
 j game_loop
 j button_pressed
@@ -35,6 +37,7 @@ ascend:
 addi $r14, $r14, -5
 addi $r17, $r17, -10  #jump 10 pixels per frame
 addi $r18, $r18, -10
+jal check_collision
 
 not_ready_to_update_ascend:
 
@@ -55,6 +58,7 @@ descend:
 addi $r14, $r14, -5
 addi $r17, $r17, 5  #fall 1 pixels per frame
 addi $r18, $r18, 5
+jal check_collision
 
 not_ready_to_update_descend:
 
@@ -67,7 +71,6 @@ j descend
 
 addi $r20, $r0, 0 #clear button register
 j game_loop
-
 
 move_obstacle:
 
@@ -87,3 +90,14 @@ reset_obstacle_coord:
 
 addi $r14, $r0, 680
 j move_obstacle
+
+check_collision:
+
+#bne $r24, $r0, 1
+jr $r31
+j game_over
+
+game_over:
+
+j game_over
+

@@ -1,5 +1,6 @@
 module DINO(input clk,
             input button_press,
+            input reset,
 
             // VGA input
             output hSync, 		// H Sync Signal
@@ -11,9 +12,7 @@ module DINO(input clk,
 
             inout ps2_clk,
             inout ps2_data);
-
-    wire reset;
-    assign reset = 1'b0;
+    
 
     localparam MHz = 1000000;
     localparam SYSTEM_FREQ = 100*MHz; // System clock frequency
@@ -29,10 +28,10 @@ module DINO(input clk,
     clock_divider processor_clock_divider(.divclk(processor_clk), .divclkfreq(PROC_FREQ),
                                            .sysclk(clk), .sysclkfreq(SYSTEM_FREQ));
 
-    wire screen_ready;
+    wire screen_ready, collision_detected;
 
     wire [31:0] x_coor, y_coor, x_coor_obstacle, y_coor_obstacle; 
-    wire [31:0] r20, r22;
+    wire [31:0] r20, r22, r24;
     assign r20[31:3] = 28'd0;
     assign r20[2] = button_press;
     assign r20[1] = button_press;
@@ -41,21 +40,27 @@ module DINO(input clk,
     assign r22[2] = screen_ready;
     assign r22[1] = screen_ready;
     assign r22[0] = screen_ready;
+    assign r24[31:3] = 28'd0;
+    assign r24[2] = collision_detected;
+    assign r24[1] = collision_detected;
+    assign r24[0] = collision_detected;
+
 
     wire [31:0] q_reg20, q_reg22;
 
-    //ila_0 debugger(.clk(clk), .probe0(x_coor), .probe1(y_coor), .probe2(r20), .probe3(r22), .probe4(q_reg20), .probe5(q_reg22));
+    ila_0 debugger(.clk(clk), .probe0(x_coor), .probe1(y_coor), .probe2(r20), .probe3(r22), .probe4(r24), .probe5(q_reg22));
 
     Wrapper CPU(
         // OG ports    
         .clock(processor_clk), 
         .reset(reset), 
 
-        .r20(r20), .r22(r22), 
+        .r20(r20), .r22(r22), .r24(r24),
         .r16(x_coor), .r17(y_coor),
         .r14(x_coor_obstacle), .r15(y_coor_obstacle),
         .button_signal(button_press),
         .screen_signal(screen_ready),
+        .collision_signal(collision_detected),
         .q_reg20(q_reg20),
         .q_reg22(q_reg22)
     );
@@ -82,6 +87,7 @@ module DINO(input clk,
         .VGA_G(VGA_G),  // Green Signal Bits
         .VGA_B(VGA_B),  // Blue Signal Bits
         .screen_ready(screen_ready),
+        .collision_detected(collision_detected),
         .ps2_clk(ps2_clk),
         .ps2_data(ps2_data), 
 
