@@ -7,7 +7,7 @@ add $r0, $r0, $r0
 addi $r16, $r0, 240 #dino x-coordinate (center) 
 addi $r17, $r0, 320 #dino y-coordinate (bottom)
 
-addi $r14, $r0, 7000 #obstacle x-coordinate
+addi $r14, $r0, 5500 #obstacle x-coordinate
 addi $r15, $r0, 320 #obstacle y-coordinate
 
 addi $r18, $r0, 0 #counter for jump loop
@@ -18,7 +18,7 @@ addi $r23, $r0, 45 #constant 45
 addi $r20, $r0, 0 #button_pressed status register
 addi $r22, $r0, 0 #screedEnd status register
 addi $r24, $r0, 0 #collision status register
-addi $r25, $r0, 0 #random obstacle size status register
+addi $r25, $r0, 0 #random obstacle size status register clk
 
 #2nd step: make dinosaur jump still
 
@@ -90,7 +90,7 @@ jr $r31
 reset_obstacle_coord:
 
 addi $r14, $r0, 680
-addi $r25, $r0, 1
+addi $r25, $r25, 1
 j move_obstacle
 
 check_collision:

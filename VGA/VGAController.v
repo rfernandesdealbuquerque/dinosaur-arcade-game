@@ -91,8 +91,8 @@ module VGAController(
 	assign obstacle_height[0] = 1'b1;
 
 
-	random_generator height_generator(.q7(obstacle_height[7]), .q6(obstacle_height[6]), .q5(obstacle_height[5]), 
-									  .q4(obstacle_height[4]), clk(random_generator_clk[0]), .en(1'b1), .reset(reset));
+	LFSR_4bit height_generator(.q7(obstacle_height[7]), .q6(obstacle_height[6]), .q5(obstacle_height[5]), 
+									  .q4(obstacle_height[4]), .clk(random_generator_clk[0]), .en(1'b1), .reset(reset));
 
 	//assign x_center_obstacle = 680;
 	//assign y_bottom_obstacle = 320;
@@ -102,7 +102,7 @@ module VGAController(
 	assign y_bottom_obstacle = y_coor_obstacle[11:0];
 
 	wire [11:0] topB_obstacle, bottB_obstacle, leftB_obstacle, rightB_obstacle;
-	assign topB_obstacle = y_bottom_obstacle - obstacle_height; //120 height
+	assign topB_obstacle = y_bottom_obstacle - 100; //120 height
 	assign bottB_obstacle = y_bottom_obstacle;
 	assign leftB_obstacle = x_center_obstacle;
 	assign rightB_obstacle = x_center_obstacle + 50; //50 width

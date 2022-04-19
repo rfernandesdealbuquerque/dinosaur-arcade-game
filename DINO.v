@@ -52,7 +52,7 @@ module DINO(input clk,
 
     wire [31:0] q_reg20, q_reg22;
 
-    ila_0 debugger(.clk(clk), .probe0(x_coor), .probe1(y_coor), .probe2(r20), .probe3(r22), .probe4(r24), .probe5(q_reg22));
+    ila_0 debugger(.clk(clk), .probe0(x_coor), .probe1(y_coor), .probe2(r20), .probe3(r22), .probe4(r25), .probe5(q_reg22));
 
     Wrapper CPU(
         // OG ports    
