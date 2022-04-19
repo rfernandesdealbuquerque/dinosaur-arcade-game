@@ -99,11 +99,13 @@ read_mem {
 }
 read_verilog -library xil_defaultlib {
   C:/Users/rodri/ECE350/final-project-team-18/Processor/ADD.v
+  C:/Users/rodri/ECE350/final-project-team-18/Scores/BCD.v
   C:/Users/rodri/ECE350/final-project-team-18/Processor/BIT_AND.v
   C:/Users/rodri/ECE350/final-project-team-18/Processor/BIT_OR.v
   C:/Users/rodri/ECE350/final-project-team-18/Processor/CLA_1.v
   C:/Users/rodri/ECE350/final-project-team-18/Processor/CLA_32.v
   C:/Users/rodri/ECE350/final-project-team-18/Processor/CLA_8.v
+  C:/Users/rodri/ECE350/final-project-team-18/Scores/DigitDisplay.v
   C:/Users/rodri/ECE350/final-project-team-18/Processor/NOT_EQUAL.v
   C:/Users/rodri/ECE350/final-project-team-18/Processor/RAM.v
   C:/Users/rodri/ECE350/final-project-team-18/VGA/RAM_VGA.v

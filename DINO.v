@@ -10,6 +10,10 @@ module DINO(input clk,
             output[3:0] VGA_G,  // Green Signal Bits
             output[3:0] VGA_B,  // Blue Signal Bits
 
+            output A_0, B_0, C_0, D_0, E_0, F_0, G_0,
+            output anode_0,
+            output test,
+
             inout ps2_clk,
             inout ps2_data);
     
@@ -18,7 +22,7 @@ module DINO(input clk,
     localparam SYSTEM_FREQ = 100*MHz; // System clock frequency
     localparam PROC_FREQ = 50*MHz;
 
-    localparam GAME_FRAME_RT = 64'd60; // 60 fps
+    localparam GAME_FRAME_RT = 64'd3; // 3 fps
 
     wire frame_rate_clk, processor_clk;
 
@@ -31,7 +35,7 @@ module DINO(input clk,
     wire screen_ready, collision_detected;
 
     wire [31:0] x_coor, y_coor, x_coor_obstacle, y_coor_obstacle; 
-    wire [31:0] r20, r22, r24;
+    wire [31:0] r20, r22, r24, r25;
     assign r20[31:3] = 28'd0;
     assign r20[2] = button_press;
     assign r20[1] = button_press;
@@ -57,7 +61,7 @@ module DINO(input clk,
 
         .r20(r20), .r22(r22), .r24(r24),
         .r16(x_coor), .r17(y_coor),
-        .r14(x_coor_obstacle), .r15(y_coor_obstacle),
+        .r14(x_coor_obstacle), .r15(y_coor_obstacle), .r25(r25),
         .button_signal(button_press),
         .screen_signal(screen_ready),
         .collision_signal(collision_detected),
@@ -88,6 +92,7 @@ module DINO(input clk,
         .VGA_B(VGA_B),  // Blue Signal Bits
         .screen_ready(screen_ready),
         .collision_detected(collision_detected),
+        .random_generator_clk(r25[1:0]),
         .ps2_clk(ps2_clk),
         .ps2_data(ps2_data), 
 
@@ -96,5 +101,29 @@ module DINO(input clk,
         .x_coor_obstacle(x_coor_obstacle),
         .y_coor_obstacle(y_coor_obstacle) 
     );
+
+
+    wire [6:0] segment_0, segment_1, segment_2, segment_3, segment_4, segment_5;
+    wire [19:0] binary_counter;
+
+    assign A_0 = ~segment_0[6];
+    assign B_0 = ~segment_0[5];
+    assign C_0 = ~segment_0[4];
+    assign D_0 = ~segment_0[3];
+    assign E_0 = ~segment_0[2];
+    assign F_0 = ~segment_0[1];
+    assign G_0 = ~segment_0[0];
+
+    assign anode_0 = 1'b1;
+    assign test = button_press;
+    
+    BCD Game_Score(.q(binary_counter), 
+                   .lcd_4(segment_4), .lcd_3(segment_3), 
+                   .lcd_2(segment_2), .lcd_1(segment_1), 
+                   .lcd_0(segment_0),
+                   .clk(frame_rate_clk),
+                   .en(1'b1),
+                   .clr(reset)
+                   );
 
 endmodule

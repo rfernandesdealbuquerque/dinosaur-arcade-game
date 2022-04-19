@@ -131,7 +131,7 @@
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="7981" fcId="60115" index="0" mode="4" rootId="2" side="1" type="available">
-                <Bounds height="934" width="2195" x="0" y="0"/>
+                <Bounds height="937" width="2195" x="0" y="0"/>
                 <DockChild dockId="7981"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
@@ -261,7 +261,7 @@
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="35233" fcId="60115" index="0" mode="4" rootId="2" side="1" type="available">
-                <Bounds height="934" width="2195" x="0" y="0"/>
+                <Bounds height="937" width="2195" x="0" y="0"/>
                 <DockChild dockId="35233"/>
                 <DockChild dockId="23803"/>
                 <DockChild dockId="42224"/>
@@ -300,7 +300,7 @@
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="23803" fcId="60115" index="0" mode="4" rootId="2" side="1" type="available">
-                <Bounds height="934" width="2195" x="0" y="0"/>
+                <Bounds height="937" width="2195" x="0" y="0"/>
                 <DockChild dockId="23803"/>
                 <DockChild dockId="42224"/>
                 <DockChild dockId="7197"/>
@@ -338,7 +338,7 @@
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="42224" fcId="60115" index="0" mode="4" rootId="2" side="1" type="available">
-                <Bounds height="934" width="2195" x="0" y="0"/>
+                <Bounds height="937" width="2195" x="0" y="0"/>
                 <DockChild dockId="42224"/>
                 <DockChild dockId="7197"/>
                 <DockChild dockId="13572"/>
@@ -379,7 +379,7 @@
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="7197" fcId="60115" index="0" mode="4" rootId="2" side="1" type="available">
-                <Bounds height="934" width="2195" x="0" y="0"/>
+                <Bounds height="937" width="2195" x="0" y="0"/>
                 <DockChild dockId="7197"/>
                 <DockChild dockId="13572"/>
                 <DockChild dockId="36773"/>
@@ -415,7 +415,7 @@
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="13572" fcId="60115" index="0" mode="4" rootId="2" side="1" type="available">
-                <Bounds height="934" width="2195" x="0" y="0"/>
+                <Bounds height="937" width="2195" x="0" y="0"/>
                 <DockChild dockId="13572"/>
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
@@ -538,7 +538,7 @@
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="36773" fcId="60115" index="0" mode="4" rootId="2" side="1" type="available">
-                <Bounds height="934" width="2195" x="0" y="0"/>
+                <Bounds height="937" width="2195" x="0" y="0"/>
                 <DockChild dockId="36773"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
@@ -568,7 +568,7 @@
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="5890" fcId="60115" index="0" mode="4" rootId="2" side="1" type="available">
-                <Bounds height="934" width="2195" x="0" y="0"/>
+                <Bounds height="937" width="2195" x="0" y="0"/>
                 <DockChild dockId="5890"/>
                 <DockChild dockId="46184"/>
                 <DockChild dockId="46897"/>
@@ -597,7 +597,7 @@
                 </DockParentState>
             </DockPreviousState>
             <DockPreviousState dockId="46184" fcId="60115" index="0" mode="4" rootId="2" side="1" type="available">
-                <Bounds height="934" width="2195" x="0" y="0"/>
+                <Bounds height="937" width="2195" x="0" y="0"/>
                 <DockChild dockId="46184"/>
                 <DockChild dockId="46897"/>
                 <DockParentState ccId="38445" dockId="60115" orientation="0">
