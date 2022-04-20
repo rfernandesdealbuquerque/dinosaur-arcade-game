@@ -10,12 +10,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="21fs"></ZoomEndTime>
+      <ZoomEndTime time="103fs"></ZoomEndTime>
       <Cursor1Time time="449fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="661"></NameColumnWidth>
-      <ValueColumnWidth column_width="299"></ValueColumnWidth>
+      <ValueColumnWidth column_width="289"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="6" />
    <wvobject fp_name="x_coor" type="array">

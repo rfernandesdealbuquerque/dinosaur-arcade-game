@@ -11,6 +11,9 @@ module DINO(input clk,
             output[3:0] VGA_G,  // Green Signal Bits
             output[3:0] VGA_B,  // Blue Signal Bits
 
+            output [6:0] CAT,
+            output [7:0] AN,
+
             output life0, life1, life2,
 
             inout ps2_clk,
@@ -25,10 +28,10 @@ module DINO(input clk,
 
     wire frame_rate_clk, processor_clk;
 
-    clock_divider frame_rate_clock_divider(.divclk(frame_rate_clk), .divclkfreq(GAME_FRAME_RT),
+    clock_divider_DINO frame_rate_clock_divider(.divclk(frame_rate_clk), .divclkfreq(GAME_FRAME_RT),
                                            .sysclk(clk), .sysclkfreq(SYSTEM_FREQ));
 
-    clock_divider processor_clock_divider(.divclk(processor_clk), .divclkfreq(PROC_FREQ),
+    clock_divider_DINO processor_clock_divider(.divclk(processor_clk), .divclkfreq(PROC_FREQ),
                                            .sysclk(clk), .sysclkfreq(SYSTEM_FREQ));
 
     wire screen_ready, collision_detected;
@@ -59,7 +62,7 @@ module DINO(input clk,
     wire [31:0] q_reg20, q_reg22;
     wire [11:0] obstacle_height;
 
-    ila_0 debugger(.clk(clk), .probe0(x_coor), .probe1(y_coor), .probe2(r20), .probe3(r22), .probe4(r25), .probe5(obstacle_height));
+    //ila_0 debugger(.clk(clk), .probe0(x_coor), .probe1(y_coor), .probe2(r20), .probe3(r22), .probe4(r25), .probe5(obstacle_height));
 
     Wrapper CPU(
         // OG ports    
@@ -115,5 +118,10 @@ module DINO(input clk,
         .pause(pause_switch),
         .game_over(game_over)
     );
+
+    wire enable_score;
+    assign enable_score = (pause_switch || game_over) ? 1'b0 : 1'b1;
+
+    score_tracking Score_Display(.clk(clk), .en(enable_score), .clr(reset), .AN(AN), .CAT(CAT));
 
 endmodule

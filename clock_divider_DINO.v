@@ -1,4 +1,4 @@
-module clock_divider(
+module clock_divider_DINO(
     sysclk, 		// System Clock Input 100 Mhz
     sysclkfreq,
     divclkfreq,
