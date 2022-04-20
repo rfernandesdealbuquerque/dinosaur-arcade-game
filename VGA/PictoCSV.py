@@ -11,13 +11,9 @@ except:
         os.system("pip3 install pillow")
     else:
         sys.exit()
-        
-if len(sys.argv) != 2:
-    print("Usage: PictoCSV.py FileName.jpg")
-    sys.exit()
-
-imageName = sys.argv[1]
-path = ""
+       
+imageName = "/mnt/c/Users/rodri/ECE350/final-project-team-18/NewPiskel.png"
+path = "/mnt/c/Users/rodri/ECE350/final-project-team-18/"
 
 file = Image.open(imageName)
 
@@ -30,11 +26,10 @@ with open(path + "colors.csv", "w") as csvFile:
     for n in range(int(len(colors)/8)):
         writer.writerow([(hex(color[0])[2:] + hex(color[1])[2:] + hex(color[1])[2:]) for color in colors[8 * n:8 * (n + 1)]])
 
-with open(path + "image.csv", "w") as csvFile:
+with open(path + "dino.csv", "w") as csvFile:
     writer = csv.writer(csvFile)
     for y in range(img.size[1]):
         toWrite = []
         for x in range(img.size[0]):
             toWrite.append(hex(pixels[x, y])[2:])
         writer.writerow(toWrite)
-

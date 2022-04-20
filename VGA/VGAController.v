@@ -1,13 +1,16 @@
 `timescale 1 ns/ 100 ps
 module VGAController(     
 	input clk, 			// 100 MHz System Clock
-	input reset, 		// Reset Signal
+	input reset,        // Reset Signal
+	input [1:0] random_generator_clk,		
 	output hSync, 		// H Sync Signal
 	output vSync, 		// Veritcal Sync Signal
 	output[3:0] VGA_R,  // Red Signal Bits
 	output[3:0] VGA_G,  // Green Signal Bits
 	output[3:0] VGA_B,  // Blue Signal Bits
 	output screen_ready,
+	output collision_detected,
+	output [11:0] obstacle_height,
 	inout ps2_clk,
 	inout ps2_data,
 	
@@ -77,6 +80,43 @@ module VGAController(
 	wire x_in_bounds_obstacle, y_in_bounds_obstacle;
 	wire [11:0] x_center_obstacle, y_bottom_obstacle;
 
+	wire [11:0] obstacle_height, obstacle_width;
+
+	assign obstacle_height[11] = 1'b0;
+	assign obstacle_height[10] = 1'b0;
+	assign obstacle_height[9] = 1'b0;
+	assign obstacle_height[8] = 1'b0;
+	assign obstacle_height[7] = 1'b0;
+	//assign obstacle_height[6] = 1'b0;
+	//assign obstacle_height[5] = 1'b0;
+	//assign obstacle_height[4] = 1'b0;
+	//assign obstacle_height[3] = 1'b1;
+	//assign obstacle_height[2] = 1'b1;
+	assign obstacle_height[1] = 1'b1;
+	assign obstacle_height[0] = 1'b1;
+	
+	assign obstacle_width[11] = 1'b0;
+	assign obstacle_width[10] = 1'b0;
+	assign obstacle_width[9] = 1'b0;
+	assign obstacle_width[8] = 1'b0;
+	assign obstacle_width[7] = 1'b0;
+	//assign obstacle_width[6] = 1'b0;
+	//assign obstacle_width[5] = 1'b0;
+	//assign obstacle_width[4] = 1'b0;
+	//assign obstacle_width[3] = 1'b1;
+	assign obstacle_width[2] = 1'b1;
+	assign obstacle_width[1] = 1'b1;
+	assign obstacle_width[0] = 1'b1;
+	wire q7_h, q7_w, q6_h, q6_w, q5_h, q5_w;
+
+	LFSR_5bit height_generator(.q7(obstacle_height[6]), .q6(obstacle_height[5]), .q5(obstacle_height[4]), 
+							   .q4(obstacle_height[3]), .q3(obstacle_height[2]), .clk(random_generator_clk[0]), .en(1'b1), .reset(reset));
+
+	LFSR_4bit width_generator(.q7(obstacle_width[6]), .q6(obstacle_width[5]), .q5(obstacle_width[4]), 
+							  .q4(obstacle_width[3]), .clk(random_generator_clk[1]), 
+							  .en(1'b1), .reset(reset));
+
+
 	//assign x_center_obstacle = 680;
 	//assign y_bottom_obstacle = 320;
 
@@ -85,14 +125,23 @@ module VGAController(
 	assign y_bottom_obstacle = y_coor_obstacle[11:0];
 
 	wire [11:0] topB_obstacle, bottB_obstacle, leftB_obstacle, rightB_obstacle;
-	assign topB_obstacle = y_bottom_obstacle - 120; //120 height
+	assign topB_obstacle = y_bottom_obstacle - obstacle_height; //120 height
 	assign bottB_obstacle = y_bottom_obstacle;
 	assign leftB_obstacle = x_center_obstacle;
-	assign rightB_obstacle = x_center_obstacle + 50; //50 width
+	assign rightB_obstacle = x_center_obstacle + obstacle_width; //50 width
+
 
 	assign x_in_bounds_obstacle = (x >= leftB_obstacle) && (x <= rightB_obstacle);
 	assign y_in_bounds_obstacle = (y >= topB_obstacle) && (y <= bottB_obstacle);
 
+
+	wire collision_detected_y, collision_detected_x;
+
+	assign collision_detected_x = (rightB >= leftB_obstacle && leftB <= rightB_obstacle);
+	assign collision_detected_y = (bottB >= topB_obstacle);
+
+	assign collision_detected = (collision_detected_x && collision_detected_y);
+	
 
 	// Image Data to Map Pixel Location to Color Address
 	localparam 
@@ -101,6 +150,7 @@ module VGAController(
 		BITS_PER_COLOR = 12, 	  								 // Nexys A7 uses 12 bits/color
 		PALETTE_COLOR_COUNT = 256, 								 // Number of Colors available
 		PALETTE_ADDRESS_WIDTH = $clog2(PALETTE_COLOR_COUNT) + 1; // Use built in log2 Command
+	
 
 	wire[PIXEL_ADDRESS_WIDTH-1:0] imgAddress;  	 // Image address for the image data
 	wire[PALETTE_ADDRESS_WIDTH-1:0] colorAddr; 	 // Color address for the color palette
@@ -130,13 +180,30 @@ module VGAController(
 		.addr(colorAddr),					       // Address from the ImageData RAM
 		.dataOut(colorData),				       // Color at current pixel
 		.wEn(1'b0)); 						       // We're always reading
+
+    localparam SPRITE_COUNT = $clog2(70*50) + 1;
+	wire[PIXEL_ADDRESS_WIDTH-1:0] dinoAddress;  	 // Image address for the image data
+	assign dinoAddress = (x-leftB) + 50*(y-topB);
+	wire dinocolorAddr;
+
+	RAM_VGA #(		
+		.DEPTH(70*50), 				     // Set RAM depth to contain every pixel
+		.DATA_WIDTH(PALETTE_ADDRESS_WIDTH),      // Set data width according to the color palette
+		.ADDRESS_WIDTH(SPRITE_COUNT),     // Set address with according to the pixel count
+		.MEMFILE({FILES_PATH, "dino.mem"})) // Memory initialization
+	SPRITE(
+		.clk(clk), 						 // Falling edge of the 100 MHz clk
+		.addr(dinoAddress),					 // Image data address
+		.dataOut(dinocolorAddr),				 // Color palette address
+		.wEn(1'b0)); 						 // We're always reading
 	
 
 	// Assign to output color from register if active
-	wire[BITS_PER_COLOR-1:0] colorOut, squareOut, obstacleOut; 			  // Output color 
+	wire[BITS_PER_COLOR-1:0] colorOut, squareOut, obstacleOut, screenOut; 			  // Output color 
 	assign colorOut = active ? colorData : 12'd0; // When not active, output black
-	assign squareOut = (x_in_bounds & y_in_bounds) ? 12'hc10 : colorOut;
-	assign obstacleOut = (x_in_bounds_obstacle & y_in_bounds_obstacle) ? 12'hc13 : squareOut;
+	assign squareOut = (x_in_bounds & y_in_bounds) ? (dinocolorAddr ? 12'h000 : colorOut) : colorOut;
+	assign obstacleOut = (x_in_bounds_obstacle & y_in_bounds_obstacle) ? 12'h000 : squareOut;
+	//assign screenOut = collision_detected ? colorOut : obstacleOut;
 
 	// Quickly assign the output colors to their channels using concatenation
 	assign {VGA_R, VGA_G, VGA_B} = obstacleOut;
