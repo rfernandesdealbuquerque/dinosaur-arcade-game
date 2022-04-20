@@ -1,0 +1,10 @@
+BCD.v
+BCD_tb.v
+LED_segments.v
+anode.v
+cathode_control.v
+clk_tb.v
+clock_divider.v
+display_control.v
+refresh_counter.v
+score_tracking.v

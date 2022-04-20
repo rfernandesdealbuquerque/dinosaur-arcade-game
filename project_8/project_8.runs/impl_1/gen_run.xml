@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1650439641">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1650440764">
   <File Type="BITSTR-BMM" Name="DINO_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="DINO_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="DINO_timing_summary_init.rpt"/>
@@ -84,13 +84,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../Scores/BCD.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../Processor/BIT_AND.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -120,13 +113,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../Processor/CLA_8.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../Scores/DigitDisplay.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -469,6 +455,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../Scores/BCD.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../Processor/decoder_read.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -486,14 +480,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../Processor/mux_32.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../Scores/register_4.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>

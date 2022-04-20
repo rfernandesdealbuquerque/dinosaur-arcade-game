@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Wed Apr 20 02:18:12 2022
+# Process ID: 19916
+# Current directory: C:/Users/ww/OneDrive/Documents/College/Senior/Spring/ECE 350/Checkpoints/final-project-team-18/Scores/score_display.runs/synth_1
+# Command line: vivado.exe -log score_tracking.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source score_tracking.tcl
+# Log file: C:/Users/ww/OneDrive/Documents/College/Senior/Spring/ECE 350/Checkpoints/final-project-team-18/Scores/score_display.runs/synth_1/score_tracking.vds
+# Journal file: C:/Users/ww/OneDrive/Documents/College/Senior/Spring/ECE 350/Checkpoints/final-project-team-18/Scores/score_display.runs/synth_1\vivado.jou
+# Running On: LAPTOP-IKT83306, OS: Windows, CPU Frequency: 2419 MHz, CPU Physical cores: 4, Host memory: 16885 MB
+#-----------------------------------------------------------
+source score_tracking.tcl -notrace

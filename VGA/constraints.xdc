@@ -2,7 +2,7 @@
 set_property PACKAGE_PIN E3 [get_ports clk]
 set_property IOSTANDARD LVCMOS33 [get_ports clk]
 
-// Rest Signal
+// Reset Signal
 set_property PACKAGE_PIN N17 [get_ports reset]
 set_property IOSTANDARD LVCMOS33 [get_ports reset]
 
@@ -34,25 +34,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports {VGA_R[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {button_press}]
 set_property IOSTANDARD LVCMOS33 [get_ports {pause_switch}]
 
-//7-segment Display
-set_property IOSTANDARD LVCMOS33 [get_ports {A_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {B_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {C_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {D_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {E_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {F_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {G_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {anode_0}]
-
-set_property PACKAGE_PIN T10 [get_ports {A_0}]
-set_property PACKAGE_PIN R10 [get_ports {B_0}]
-set_property PACKAGE_PIN K16 [get_ports {C_0}]
-set_property PACKAGE_PIN K13 [get_ports {D_0}]
-set_property PACKAGE_PIN P15 [get_ports {E_0}]
-set_property PACKAGE_PIN T11 [get_ports {F_0}]
-set_property PACKAGE_PIN L18 [get_ports {G_0}]
-set_property PACKAGE_PIN J17 [get_ports {anode_0}]
-
+// Life LEDs
 set_property IOSTANDARD LVCMOS33 [get_ports {life0}]
 set_property IOSTANDARD LVCMOS33 [get_ports {life1}]
 set_property IOSTANDARD LVCMOS33 [get_ports {life2}]

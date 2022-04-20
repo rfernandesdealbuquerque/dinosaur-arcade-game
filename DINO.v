@@ -11,9 +11,6 @@ module DINO(input clk,
             output[3:0] VGA_G,  // Green Signal Bits
             output[3:0] VGA_B,  // Blue Signal Bits
 
-            output A_0, B_0, C_0, D_0, E_0, F_0, G_0,
-            output anode_0,
-
             output life0, life1, life2,
 
             inout ps2_clk,
@@ -118,29 +115,5 @@ module DINO(input clk,
         .pause(pause_switch),
         .game_over(game_over)
     );
-
-
-    wire [6:0] segment_0, segment_1, segment_2, segment_3, segment_4, segment_5;
-    wire [19:0] binary_counter;
-
-    assign A_0 = ~segment_0[6];
-    assign B_0 = ~segment_0[5];
-    assign C_0 = ~segment_0[4];
-    assign D_0 = ~segment_0[3];
-    assign E_0 = ~segment_0[2];
-    assign F_0 = ~segment_0[1];
-    assign G_0 = ~segment_0[0];
-
-    assign anode_0 = 1'b0;
-    //assign test = button_press;
-    
-    BCD Game_Score(.q(binary_counter), 
-                   .lcd_4(segment_4), .lcd_3(segment_3), 
-                   .lcd_2(segment_2), .lcd_1(segment_1), 
-                   .lcd_0(segment_0),
-                   .clk(r25[0]),
-                   .en(1'b1),
-                   .clr(reset)
-                   );
 
 endmodule

@@ -263,8 +263,8 @@ module VGAController(
 	assign colorOut = active ? colorData : 12'd0; // When not active, output black
 	assign squareOut = (x_in_bounds & y_in_bounds) ? (dinocolorAddr ? 12'h000 : colorOut) : colorOut;
 	assign obstacleOut = (x_in_bounds_obstacle & y_in_bounds_obstacle) ? 12'h000 : squareOut;
-	assign rectangleOut_game_over = (x_in_bounds_rectangle & y_in_bounds_rectangle) ? 12'h0c0 : obstacleOut;
-	assign rectangleOut_pause = (x_in_bounds_rectangle & y_in_bounds_rectangle) ? 12'h00c : obstacleOut;
+	assign rectangleOut_game_over = (x_in_bounds_rectangle & y_in_bounds_rectangle) ? (game_overcolorAddr ? 12'hc00 : obstacleOut) : obstacleOut;
+	assign rectangleOut_pause = (x_in_bounds_rectangle & y_in_bounds_rectangle) ? (pausecolorAddr ? 12'h0c0 : obstacleOut) : obstacleOut;
 	assign rectangleOut = pause ? rectangleOut_pause : rectangleOut_game_over;
 	assign screenOut = (pause || game_over) ? rectangleOut : obstacleOut;
 	

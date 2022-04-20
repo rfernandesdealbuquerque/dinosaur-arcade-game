@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date             : Wed Apr 20 03:30:38 2022
+| Date             : Wed Apr 20 03:48:41 2022
 | Host             : DESKTOP-1ABTAGV running 64-bit major release  (build 9200)
 | Command          : report_power -file DINO_power_routed.rpt -pb DINO_power_summary_routed.pb -rpx DINO_power_routed.rpx
 | Design           : DINO
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.111        |
+| Total On-Chip Power (W)  | 0.110        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.009        |
@@ -53,21 +53,21 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |     0.001 |    15097 |       --- |             --- |
-|   LUT as Logic           |     0.001 |     5709 |     63400 |            9.00 |
+| Slice Logic              |     0.001 |    15107 |       --- |             --- |
+|   LUT as Logic           |     0.001 |     5721 |     63400 |            9.02 |
 |   CARRY4                 |    <0.001 |      267 |     15850 |            1.68 |
 |   Register               |    <0.001 |     6372 |    126800 |            5.03 |
 |   LUT as Distributed RAM |    <0.001 |      152 |     19000 |            0.80 |
 |   LUT as Shift Register  |    <0.001 |      392 |     19000 |            2.06 |
 |   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
 |   F7/F8 Muxes            |    <0.001 |      100 |     63400 |            0.16 |
-|   Others                 |     0.000 |      820 |       --- |             --- |
-| Signals                  |     0.002 |    11899 |       --- |             --- |
-| Block RAM                |    <0.001 |     90.5 |       135 |           67.04 |
-| DSPs                     |    <0.001 |        6 |       240 |            2.50 |
-| I/O                      |     0.004 |       29 |       210 |           13.81 |
+|   Others                 |     0.000 |      824 |       --- |             --- |
+| Signals                  |     0.002 |    11931 |       --- |             --- |
+| Block RAM                |    <0.001 |     92.5 |       135 |           68.52 |
+| DSPs                     |    <0.001 |        8 |       240 |            3.33 |
+| I/O                      |     0.003 |       21 |       210 |           10.00 |
 | Static Power             |     0.101 |          |           |                 |
-| Total                    |     0.111 |          |           |                 |
+| Total                    |     0.110 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
