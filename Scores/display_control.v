@@ -1,4 +1,4 @@
-// Thanks to https://www.youtube.com/watch?v=s4lPOQ1VAkU
+// Reference https://www.youtube.com/watch?v=s4lPOQ1VAkU
 module display_control (
     input [2:0] refresh_counter, 
     input [3:0] digit_7,
