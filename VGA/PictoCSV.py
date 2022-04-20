@@ -12,7 +12,7 @@ except:
     else:
         sys.exit()
        
-imageName = "/mnt/c/Users/rodri/ECE350/final-project-team-18/NewPiskel.png"
+imageName = "/mnt/c/Users/rodri/ECE350/final-project-team-18/pause.png"
 path = "/mnt/c/Users/rodri/ECE350/final-project-team-18/"
 
 file = Image.open(imageName)
@@ -26,7 +26,7 @@ with open(path + "colors.csv", "w") as csvFile:
     for n in range(int(len(colors)/8)):
         writer.writerow([(hex(color[0])[2:] + hex(color[1])[2:] + hex(color[1])[2:]) for color in colors[8 * n:8 * (n + 1)]])
 
-with open(path + "dino.csv", "w") as csvFile:
+with open(path + "pause.csv", "w") as csvFile:
     writer = csv.writer(csvFile)
     for y in range(img.size[1]):
         toWrite = []

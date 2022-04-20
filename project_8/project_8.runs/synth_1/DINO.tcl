@@ -91,12 +91,12 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_mem {
-  C:/Users/rodri/ECE350/final-project-team-18/VGA/sprites.mem
-  C:/Users/rodri/ECE350/final-project-team-18/VGA/image.mem
-  C:/Users/rodri/ECE350/final-project-team-18/VGA/ascii.mem
-  C:/Users/rodri/ECE350/final-project-team-18/VGA/colors.mem
   C:/Users/rodri/ECE350/final-project-team-18/VGA/dino.mem
   C:/Users/rodri/ECE350/final-project-team-18/Processor/dino_assembly.mem
+  C:/Users/rodri/ECE350/final-project-team-18/VGA/colors.mem
+  C:/Users/rodri/ECE350/final-project-team-18/VGA/image.mem
+  C:/Users/rodri/ECE350/final-project-team-18/VGA/pause.mem
+  C:/Users/rodri/ECE350/final-project-team-18/VGA/game_over.mem
 }
 read_verilog -library xil_defaultlib {
   C:/Users/rodri/ECE350/final-project-team-18/Processor/ADD.v

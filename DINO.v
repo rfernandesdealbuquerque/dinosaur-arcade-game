@@ -90,6 +90,9 @@ module DINO(input clk,
 // r21 = 1
 // r22 = screen end status --> = 1 if ready for next frame
 
+    wire game_over;
+    assign game_over = (~r28[1]) && (~r28[0]); //r28 = 00 then game_over
+
     VGAController display_control(     
 
         // OG ports
@@ -111,7 +114,9 @@ module DINO(input clk,
         .x_coor(x_coor), 
         .y_coor(y_coor),
         .x_coor_obstacle(x_coor_obstacle),
-        .y_coor_obstacle(y_coor_obstacle) 
+        .y_coor_obstacle(y_coor_obstacle),
+        .pause(pause_switch),
+        .game_over(game_over)
     );
 
 

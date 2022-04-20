@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1650413500">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1650439641">
   <File Type="BITSTR-BMM" Name="DINO_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="DINO_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="DINO_timing_summary_init.rpt"/>
@@ -508,19 +508,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../VGA/sprites.mem">
+    <File Path="$PPRDIR/../VGA/dino.mem">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../VGA/image.mem">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../VGA/ascii.mem">
+    <File Path="$PPRDIR/../Processor/dino_assembly.mem">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -532,13 +526,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../VGA/dino.mem">
+    <File Path="$PPRDIR/../VGA/image.mem">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../Processor/dino_assembly.mem">
+    <File Path="$PPRDIR/../VGA/pause.mem">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../VGA/game_over.mem">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
