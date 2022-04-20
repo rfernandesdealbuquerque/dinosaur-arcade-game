@@ -110,8 +110,6 @@ module BCD(
                 q0 <= 4'b0;
             end
         end
-        // q0 <= clr? 0 : ((q0 < 9)? q0 + 1 : 0);
-        // q1 <= clr? 0 : ((q0 < 9)? q1 : ((q1 < 9) ? (q1 + 1) : 0));
     end
 
     assign q[31:28] = q7;

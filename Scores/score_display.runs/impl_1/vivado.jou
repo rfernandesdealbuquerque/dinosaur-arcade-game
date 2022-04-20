@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Wed Apr 20 02:21:38 2022
+# Process ID: 53500
+# Current directory: C:/Users/ww/OneDrive/Documents/College/Senior/Spring/ECE 350/Checkpoints/final-project-team-18/Scores/score_display.runs/impl_1
+# Command line: vivado.exe -log score_tracking.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source score_tracking.tcl -notrace
+# Log file: C:/Users/ww/OneDrive/Documents/College/Senior/Spring/ECE 350/Checkpoints/final-project-team-18/Scores/score_display.runs/impl_1/score_tracking.vdi
+# Journal file: C:/Users/ww/OneDrive/Documents/College/Senior/Spring/ECE 350/Checkpoints/final-project-team-18/Scores/score_display.runs/impl_1\vivado.jou
+# Running On: LAPTOP-IKT83306, OS: Windows, CPU Frequency: 2419 MHz, CPU Physical cores: 4, Host memory: 16885 MB
+#-----------------------------------------------------------
+source score_tracking.tcl -notrace
