@@ -6,10 +6,10 @@ module LFSR_4bit(q7, q6, q5, q4, clk, en, reset); //will vary bits 4 to 7 of out
     wire f;
 
     xnor XNOR(f, q7, q4);
-    dffe_ref dff_7(.q(q7), .d(f), .clk(clk), .en(1'b1), .clr(reset));
-    dffe_ref dff_6(.q(q6), .d(q7), .clk(clk), .en(1'b1), .clr(reset));
-    dffe_ref dff_5(.q(q5), .d(q6), .clk(clk), .en(1'b1), .clr(reset));
-    dffe_ref dff_4(.q(q4), .d(q5), .clk(clk), .en(1'b1), .clr(reset));
+    dffe_ref dff_7(.q(q7), .d(f), .clk(clk || reset), .en(1'b1), .clr(1'b0));
+    dffe_ref dff_6(.q(q6), .d(q7), .clk(clk || reset), .en(1'b1), .clr(1'b0));
+    dffe_ref dff_5(.q(q5), .d(q6), .clk(clk || reset), .en(1'b1), .clr(reset));
+    dffe_ref dff_4(.q(q4), .d(q5), .clk(clk || reset), .en(1'b1), .clr(1'b0));
 
 
 endmodule

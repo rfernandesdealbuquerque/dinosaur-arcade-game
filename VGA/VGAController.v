@@ -87,9 +87,11 @@ module VGAController(
 	assign obstacle_height[9] = 1'b0;
 	assign obstacle_height[8] = 1'b0;
 	assign obstacle_height[7] = 1'b0;
-	assign obstacle_height[6] = 1'b0;
-	assign obstacle_height[3] = 1'b1;
-	assign obstacle_height[2] = 1'b1;
+	//assign obstacle_height[6] = 1'b0;
+	//assign obstacle_height[5] = 1'b0;
+	//assign obstacle_height[4] = 1'b0;
+	//assign obstacle_height[3] = 1'b1;
+	//assign obstacle_height[2] = 1'b1;
 	assign obstacle_height[1] = 1'b1;
 	assign obstacle_height[0] = 1'b1;
 	
@@ -98,21 +100,22 @@ module VGAController(
 	assign obstacle_width[9] = 1'b0;
 	assign obstacle_width[8] = 1'b0;
 	assign obstacle_width[7] = 1'b0;
-	assign obstacle_width[6] = 1'b0;
-	assign obstacle_width[3] = 1'b1;
+	//assign obstacle_width[6] = 1'b0;
+	//assign obstacle_width[5] = 1'b0;
+	//assign obstacle_width[4] = 1'b0;
+	//assign obstacle_width[3] = 1'b1;
 	assign obstacle_width[2] = 1'b1;
 	assign obstacle_width[1] = 1'b1;
 	assign obstacle_width[0] = 1'b1;
 	wire q7_h, q7_w, q6_h, q6_w, q5_h, q5_w;
 
-	LFSR_4bit height_generator(.q7(q7_h), .q6(q6_h), .q5(obstacle_height[5]), 
-							   .q4(obstacle_height[4]), .clk(random_generator_clk[0]), .en(1'b1), .reset(reset));
+	LFSR_5bit height_generator(.q7(obstacle_height[6]), .q6(obstacle_height[5]), .q5(obstacle_height[4]), 
+							   .q4(obstacle_height[3]), .q3(obstacle_height[2]), .clk(random_generator_clk[0]), .en(1'b1), .reset(reset));
 
-	LFSR_4bit width_generator(.q7(q7_w), .q6(q6_w), .q5(obstacle_width[5]), 
-							  .q4(obstacle_width[4]), .clk(random_generator_clk[0] || random_generator_clk[1]), 
+	LFSR_4bit width_generator(.q7(obstacle_width[6]), .q6(obstacle_width[5]), .q5(obstacle_width[4]), 
+							  .q4(obstacle_width[3]), .clk(random_generator_clk[1]), 
 							  .en(1'b1), .reset(reset));
 
-	
 
 	//assign x_center_obstacle = 680;
 	//assign y_bottom_obstacle = 320;
@@ -147,6 +150,7 @@ module VGAController(
 		BITS_PER_COLOR = 12, 	  								 // Nexys A7 uses 12 bits/color
 		PALETTE_COLOR_COUNT = 256, 								 // Number of Colors available
 		PALETTE_ADDRESS_WIDTH = $clog2(PALETTE_COLOR_COUNT) + 1; // Use built in log2 Command
+	
 
 	wire[PIXEL_ADDRESS_WIDTH-1:0] imgAddress;  	 // Image address for the image data
 	wire[PALETTE_ADDRESS_WIDTH-1:0] colorAddr; 	 // Color address for the color palette
@@ -176,13 +180,29 @@ module VGAController(
 		.addr(colorAddr),					       // Address from the ImageData RAM
 		.dataOut(colorData),				       // Color at current pixel
 		.wEn(1'b0)); 						       // We're always reading
+
+    localparam SPRITE_COUNT = $clog2(70*50) + 1;
+	wire[PIXEL_ADDRESS_WIDTH-1:0] dinoAddress;  	 // Image address for the image data
+	assign dinoAddress = (x-leftB) + 50*(y-topB);
+	wire dinocolorAddr;
+
+	RAM_VGA #(		
+		.DEPTH(70*50), 				     // Set RAM depth to contain every pixel
+		.DATA_WIDTH(PALETTE_ADDRESS_WIDTH),      // Set data width according to the color palette
+		.ADDRESS_WIDTH(SPRITE_COUNT),     // Set address with according to the pixel count
+		.MEMFILE({FILES_PATH, "dino.mem"})) // Memory initialization
+	SPRITE(
+		.clk(clk), 						 // Falling edge of the 100 MHz clk
+		.addr(dinoAddress),					 // Image data address
+		.dataOut(dinocolorAddr),				 // Color palette address
+		.wEn(1'b0)); 						 // We're always reading
 	
 
 	// Assign to output color from register if active
 	wire[BITS_PER_COLOR-1:0] colorOut, squareOut, obstacleOut, screenOut; 			  // Output color 
 	assign colorOut = active ? colorData : 12'd0; // When not active, output black
-	assign squareOut = (x_in_bounds & y_in_bounds) ? 12'hc10 : colorOut;
-	assign obstacleOut = (x_in_bounds_obstacle & y_in_bounds_obstacle) ? 12'hc13 : squareOut;
+	assign squareOut = (x_in_bounds & y_in_bounds) ? (dinocolorAddr ? 12'h000 : colorOut) : colorOut;
+	assign obstacleOut = (x_in_bounds_obstacle & y_in_bounds_obstacle) ? 12'h000 : squareOut;
 	//assign screenOut = collision_detected ? colorOut : obstacleOut;
 
 	// Quickly assign the output colors to their channels using concatenation

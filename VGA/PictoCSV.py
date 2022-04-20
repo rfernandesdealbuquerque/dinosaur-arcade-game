@@ -12,7 +12,7 @@ except:
     else:
         sys.exit()
        
-imageName = "/mnt/c/Users/rodri/ECE350/final-project-team-18/output-onlinepngtools.png"
+imageName = "/mnt/c/Users/rodri/ECE350/final-project-team-18/NewPiskel.png"
 path = "/mnt/c/Users/rodri/ECE350/final-project-team-18/"
 
 file = Image.open(imageName)

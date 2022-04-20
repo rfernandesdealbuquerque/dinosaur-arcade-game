@@ -10,32 +10,38 @@ addi $r1, $r1, -1
 blt $r1, $r3, 1
 j start_game_loop
 
+addi $r28, $r0, 3 #number of lives register
+addi $r27, $r0, -4 #initial game velocity
+
+start_game:
+
 add $r0, $r0, $r0
 addi $r16, $r0, 240 #dino x-coordinate (center) 
 addi $r17, $r0, 320 #dino y-coordinate (bottom)
 
-addi $r14, $r0, 7000 #obstacle x-coordinate
+addi $r14, $r0, 1500 #obstacle x-coordinate
 addi $r15, $r0, 320 #obstacle y-coordinate
 
 addi $r18, $r0, 0 #counter for jump loop
 addi $r19, $r0, -229 #dino jump height
 addi $r21, $r0, -5 #constant -5
 addi $r23, $r0, 45 #constant 45
-addi $r3, $r0, 3 #constant 3
+addi $r3, $r0, 4 #constant 4 -- obstacle count for increasing game velocity by 1
 
 
 addi $r20, $r0, 0 #button_pressed status register 
 addi $r22, $r0, 0 #screedEnd status register
 addi $r24, $r0, 0 #collision status register
-addi $r25, $r0, 0 #random obstacle size status register clk
+addi $r25, $r0, 0 #random obstacle size status register clk and count of obstacles that passed
 addi $r26, $r0, 0 #pause_game status register - it is a switch
 
 
-#2nd step: make dinosaur jump still
+
+#-----------------------GAME LOOP---------------------------------
 
 game_loop: 
 
-bne $r0, $r20, 5 #r20 != 0 --> button is pressed! go to jump loop
+bne $r0, $r20, 5 # --> button is pressed! go to jump section
 
 blt $r26, $r3, 1
 jal pause_game 
@@ -44,13 +50,14 @@ jal move_obstacle
 j game_loop
 j button_pressed
 
+#--------------------JUMP SECTION--------------------------------------------------
 button_pressed: 
 
 ascend: 
 
 blt $r26, $r3, 1
 jal pause_game
-addi $r14, $r14, -5
+add $r14, $r14, $r27
 addi $r17, $r17, -10  #jump 10 pixels per frame
 addi $r18, $r18, -10
 jal check_collision
@@ -73,7 +80,7 @@ descend:
 
 blt $r26, $r3, 1
 jal pause_game
-addi $r14, $r14, -5
+add $r14, $r14, $r27
 addi $r17, $r17, 5  #fall 1 pixels per frame
 addi $r18, $r18, 5
 jal check_collision
@@ -90,11 +97,14 @@ j descend
 addi $r20, $r0, 0 #clear button register
 j game_loop
 
+#--------------------------------------------------------------------------------------
+
+#----------------------OBSTACLE STUFF--------------------------------------------------
 move_obstacle:
 
 blt $r14, $r23, reset_obstacle_coord 
-
-addi $r14, $r14, -5
+blt $r3, $r25, increase_velocity
+add $r14, $r14, $r27
 
 not_ready_to_update_obstacle:
 
@@ -110,11 +120,26 @@ addi $r14, $r0, 680
 addi $r25, $r25, 1
 j move_obstacle
 
+increase_velocity:
+
+addi $r27, $r27, -1
+addi $r25, $r0, 0
+j move_obstacle
+
+#--------------------------------------------------------------------------------------
+
 check_collision:
 
 bne $r24, $r0, 1
 jr $r31
+addi $r28, $r28, -1
+j check_lives
+
+check_lives: 
+
+bne $r28, $r0, 1
 j game_over
+j start_game
 
 pause_game:
 

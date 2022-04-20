@@ -53,6 +53,13 @@ set_property PACKAGE_PIN T11 [get_ports {F_0}]
 set_property PACKAGE_PIN L18 [get_ports {G_0}]
 set_property PACKAGE_PIN J17 [get_ports {anode_0}]
 
+set_property IOSTANDARD LVCMOS33 [get_ports {life0}]
+set_property IOSTANDARD LVCMOS33 [get_ports {life1}]
+set_property IOSTANDARD LVCMOS33 [get_ports {life2}]
+set_property PACKAGE_PIN H17 [get_ports {life0}]
+set_property PACKAGE_PIN K15 [get_ports {life1}]
+set_property PACKAGE_PIN J13 [get_ports {life2}]
+
 // Sync Ports
 set_property PACKAGE_PIN J15 [get_ports pause_switch]
 set_property PACKAGE_PIN M18 [get_ports button_press]

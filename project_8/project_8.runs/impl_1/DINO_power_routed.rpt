@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date             : Tue Apr 19 15:50:18 2022
+| Date             : Tue Apr 19 20:14:55 2022
 | Host             : DESKTOP-1ABTAGV running 64-bit major release  (build 9200)
 | Command          : report_power -file DINO_power_routed.rpt -pb DINO_power_summary_routed.pb -rpx DINO_power_routed.rpx
 | Design           : DINO
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.109        |
+| Total On-Chip Power (W)  | 0.111        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.008        |
+| Dynamic (W)              | 0.010        |
 | Device Static (W)        | 0.101        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.5         |
@@ -53,21 +53,21 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |     0.001 |    14906 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     5569 |     63400 |            8.78 |
-|   CARRY4                 |    <0.001 |      258 |     15850 |            1.63 |
-|   Register               |    <0.001 |     6366 |    126800 |            5.02 |
+| Slice Logic              |     0.001 |    15085 |       --- |             --- |
+|   LUT as Logic           |     0.001 |     5701 |     63400 |            8.99 |
+|   CARRY4                 |    <0.001 |      267 |     15850 |            1.68 |
+|   Register               |    <0.001 |     6372 |    126800 |            5.03 |
 |   LUT as Distributed RAM |    <0.001 |      152 |     19000 |            0.80 |
 |   LUT as Shift Register  |    <0.001 |      392 |     19000 |            2.06 |
-|   F7/F8 Muxes            |    <0.001 |      132 |     63400 |            0.21 |
 |   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
-|   Others                 |     0.000 |      809 |       --- |             --- |
-| Signals                  |     0.002 |    11658 |       --- |             --- |
-| Block RAM                |    <0.001 |     88.5 |       135 |           65.56 |
-| DSPs                     |    <0.001 |        5 |       240 |            2.08 |
-| I/O                      |     0.003 |       26 |       210 |           12.38 |
+|   F7/F8 Muxes            |    <0.001 |      100 |     63400 |            0.16 |
+|   Others                 |     0.000 |      820 |       --- |             --- |
+| Signals                  |     0.002 |    11894 |       --- |             --- |
+| Block RAM                |    <0.001 |     90.5 |       135 |           67.04 |
+| DSPs                     |    <0.001 |        6 |       240 |            2.50 |
+| I/O                      |     0.004 |       29 |       210 |           13.81 |
 | Static Power             |     0.101 |          |           |                 |
-| Total                    |     0.109 |          |           |                 |
+| Total                    |     0.111 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,7 +77,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.022 |       0.005 |      0.017 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.023 |       0.006 |      0.017 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -146,13 +146,13 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| DINO                     |     0.008 |
+| DINO                     |     0.010 |
 |   CPU                    |     0.001 |
 |     CPU                  |     0.001 |
 |   dbg_hub                |     0.001 |
 |     inst                 |     0.001 |
 |       BSCANID.u_xsdbm_id |     0.001 |
-|   display_control        |     0.001 |
+|   display_control        |     0.002 |
 +--------------------------+-----------+
 
 
