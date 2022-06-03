@@ -3,7 +3,7 @@
 #dino width = 50
 #dino height = 60
 
-addi $r1, $r0, 200000003
+addi $r1, $r0, 20000000003
 
 start_game_loop:
 addi $r1, $r1, -1
@@ -16,6 +16,7 @@ addi $r27, $r0, -4 #initial game velocity
 start_game:
 
 add $r0, $r0, $r0
+addi $r7, $r0, 1 #register to start score
 addi $r16, $r0, 240 #dino x-coordinate (left) 
 addi $r17, $r0, 320 #dino y-coordinate (bottom)
 

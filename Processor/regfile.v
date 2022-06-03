@@ -5,7 +5,7 @@ module regfile (
 	data_readRegA, data_readRegB,
 	
 	r16, r17, r20, r22, r24, r26, button_signal_reg, screen_signal_reg, collision_signal_reg, pause_signal_reg, q_reg20, q_reg22,
-	r14, r15, r25, r28
+	r14, r15, r25, r28, r7
 );
     input [31:0] r20, r22, r24, r26; 
 	input clock, ctrl_writeEnable, ctrl_reset;
@@ -16,7 +16,7 @@ module regfile (
 
     output [31:0] r16, r17;
 	output [31:0] r14, r15;
-	output [31:0] r25, r28;
+	output [31:0] r25, r28, r7;
 	output [31:0] data_readRegA, data_readRegB;
 	output [31:0] q_reg20, q_reg22;
 
@@ -27,6 +27,7 @@ module regfile (
     assign r17 = Q_reg17;
 	assign r25 = Q_reg25;
 	assign r28 = Q_reg28;
+	assign r7 = Q_reg7;
 
 	wire [31:0] Q_reg0, Q_reg1, Q_reg2, Q_reg3, Q_reg4, Q_reg5, Q_reg6, Q_reg7;
 	wire [31:0] Q_reg8, Q_reg9, Q_reg10, Q_reg11, Q_reg12, Q_reg13, Q_reg14, Q_reg15;

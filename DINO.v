@@ -37,7 +37,7 @@ module DINO(input clk,
     wire screen_ready, collision_detected;
 
     wire [31:0] x_coor, y_coor, x_coor_obstacle, y_coor_obstacle; 
-    wire [31:0] r20, r22, r24, r25, r26, r28;
+    wire [31:0] r20, r22, r24, r25, r26, r28, r7;
     assign r20[31:3] = 28'd0;
     assign r20[2] = button_press;
     assign r20[1] = button_press;
@@ -69,7 +69,7 @@ module DINO(input clk,
         .clock(processor_clk), 
         .reset(reset), 
 
-        .r20(r20), .r22(r22), .r24(r24), .r26(r26),
+        .r20(r20), .r22(r22), .r24(r24), .r26(r26), .r7(r7),
         .r16(x_coor), .r17(y_coor),
         .r14(x_coor_obstacle), .r15(y_coor_obstacle), .r25(r25), .r28(r28),
         .button_signal(button_press),
@@ -120,7 +120,7 @@ module DINO(input clk,
     );
 
     wire enable_score;
-    assign enable_score = (pause_switch || game_over) ? 1'b0 : 1'b1;
+    assign enable_score = ((pause_switch || game_over) || ~r7[0]) ? 1'b0 : 1'b1;
 
     score_tracking Score_Display(.clk(clk), .en(enable_score), .clr(reset), .AN(AN), .CAT(CAT));
 

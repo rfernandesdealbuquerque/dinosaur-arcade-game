@@ -124,9 +124,6 @@ module VGAController(
 	assign x_left_obstacle = x_coor_obstacle[11:0];
 	assign y_bottom_obstacle = y_coor_obstacle[11:0];
 
-
-	//-----------------------COLLISION DETECTION------------------------------------
-
 	wire [11:0] topB_obstacle, bottB_obstacle, leftB_obstacle, rightB_obstacle;
 	assign topB_obstacle = y_bottom_obstacle - obstacle_height; //variable height
 	assign bottB_obstacle = y_bottom_obstacle;
@@ -137,6 +134,7 @@ module VGAController(
 	assign x_in_bounds_obstacle = (x >= leftB_obstacle) && (x <= rightB_obstacle);
 	assign y_in_bounds_obstacle = (y >= topB_obstacle) && (y <= bottB_obstacle);
 
+//-----------------------COLLISION DETECTION------------------------------------
 
 	wire collision_detected_y, collision_detected_x;
 
