@@ -24,6 +24,5 @@ The objective of this course was to learn advanced logic and computer hardware d
 ### 2️⃣ Phase 2
 
 * Created a running Dinosaur arcade game in Verilog. Implemented in a FPGA board with Vivado using the processor designed in Phase 1 and a VGA screen.
-* The project report with all the details are linked here: https://docs.google.com/document/d/1KhktslzWp_sCUSIlm7WFPDsPCJLrrU80lLkB2qFY6HE/edit
-* Here's a video of the game in action: https://drive.google.com/drive/folders/1pr-Odq0ZxRnLy56IuekHo0Z4Kr0pgii1]
-
+* The project report with all the details are linked here: https://docs.google.com/document/d/1KhktslzWp_sCUSIlm7WFPDsPCJLrrU80lLkB2qFY6HE/edit?usp=sharing
+* Here's a video of the game in action: https://drive.google.com/file/d/1DvLE2d4BDMg4-eBPVMy-_utdFtm-D-u7/view?usp=sharing
